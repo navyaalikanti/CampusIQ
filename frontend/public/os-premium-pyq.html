@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OS_Premium_10_Year_PYQ_Solutions</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;600;700&display=swap');
+    
+    :root {
+      --bg: #eceff1;
+      --paper: #ffffff;
+      --text: #111827;
+      --gold: #d4af37;
+      --primary: #2563eb;
+      --danger: #dc2626;
+      --success: #059669;
+      --muted: #4b5563;
+      --highlight: rgba(253, 224, 71, 0.4);
+    }
+    
+    body {
+      margin: 0;
+      padding: 20px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .page {
+      background: var(--paper);
+      max-width: 850px;
+      margin: 0 auto 40px auto;
+      padding: 50px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+      position: relative;
+    }
+    
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-size: 80px;
+      color: rgba(0, 0, 0, 0.03);
+      font-weight: 900;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+      font-family: 'Merriweather', serif;
+    }
+
+    .cover-page {
+      min-height: 600px;
+      border: 8px solid var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    }
+
+    .cover-dept {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .cover-title {
+      font-family: 'Merriweather', serif;
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      margin-top: 0;
+      color: var(--text);
+    }
+
+    .cover-subtitle {
+      font-size: 24px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 40px;
+      letter-spacing: 0.05em;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      background: var(--text);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge.premium { background: var(--gold); color: #000; }
+    .badge.danger { background: var(--danger); }
+    .badge.success { background: var(--success); }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 99px;
+      color: white;
+      margin-left: 8px;
+      vertical-align: middle;
+      text-transform: uppercase;
+    }
+    .tag.repeated { background: var(--danger); }
+    .tag.sureshot { background: var(--success); }
+    .tag.faculty { background: var(--primary); }
+    .tag.expected { background: var(--gold); color: #000; }
+
+    h1, h2, h3 { position: relative; z-index: 1; font-family: 'Merriweather', serif; }
+    h2 { border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; margin-top: 40px; color: var(--primary); }
+    
+    .q-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .question {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .answer {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .highlight {
+      background: var(--highlight);
+      padding: 0 4px;
+      border-radius: 2px;
+    }
+
+    .diagram-box {
+      border: 2px dashed #cbd5e1;
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      color: #94a3b8;
+      font-style: italic;
+      margin: 16px 0;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .numerical-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 14px;
+    }
+    .numerical-table th, .numerical-table td {
+      border: 1px solid #cbd5e1;
+      padding: 8px;
+      text-align: center;
+    }
+    .numerical-table th { background: #f1f5f9; }
+
+  </style>
+</head>
+<body>
+
+  <!-- Cover Page -->
+  <div class="page cover-page">
+    <div class="cover-dept">Department of Computer Science & Engineering</div>
+    
+    <h1 class="cover-title">Operating Systems</h1>
+    <h2 class="cover-subtitle">10-Year PYQ Solutions</h2>
+    
+    <div class="badges">
+      <span class="badge premium">Premium Archive</span>
+      <span class="badge text">Solved Semester Questions</span>
+      <span class="badge danger">Most Repeated</span>
+    </div>
+
+    <div style="margin-top: 40px; font-size: 16px; color: var(--muted); font-weight: 600; text-transform: uppercase;">
+      "The Senior's Secret Exam Weapon"
+    </div>
+  </div>
+
+  <!-- Page 1 -->
+  <div class="page">
+    <div class="watermark">CONFIDENTIAL ARCHIVE</div>
+    
+    <h2>1. Process & CPU Scheduling Numericals</h2>
+    
+    <div class="q-block">
+      <div class="question">
+        Q1. Consider the following processes with burst time and arrival time. Calculate Average Turnaround Time and Waiting Time using Shortest Remaining Time First (SRTF). (10M)
+        <span class="tag expected">Most Expected 10M</span>
+        <span class="tag repeated">Repeated 4 times</span>
+      </div>
+      <div class="answer">
+        <p><strong>Solution:</strong> SRTF is the preemptive version of SJF. We preempt the current process if a new process arrives with a shorter burst time.</p>
+        <table class="numerical-table">
+          <tr><th>Process</th><th>Arrival Time</th><th>Burst Time</th><th>Completion</th><th>Turnaround (TAT)</th><th>Waiting (WT)</th></tr>
+          <tr><td>P1</td><td>0</td><td>8</td><td>17</td><td>17</td><td>9</td></tr>
+          <tr><td>P2</td><td>1</td><td>4</td><td>5</td><td>4</td><td>0</td></tr>
+          <tr><td>P3</td><td>2</td><td>9</td><td>26</td><td>24</td><td>15</td></tr>
+          <tr><td>P4</td><td>3</td><td>5</td><td>10</td><td>7</td><td>2</td></tr>
+        </table>
+        <p><strong>Formulas applied:</strong><br>
+        <span class="highlight">TAT = Completion Time - Arrival Time</span><br>
+        <span class="highlight">WT = TAT - Burst Time</span></p>
+        <p><strong>Avg TAT:</strong> (17+4+24+7)/4 = 13.0 ms<br>
+        <strong>Avg WT:</strong> (9+0+15+2)/4 = 6.5 ms</p>
+      </div>
+    </div>
+
+    <h2>2. Deadlock Standard Answers</h2>
+
+    <div class="q-block">
+      <div class="question">
+        Q2. Define Deadlock. Explain Banker's Algorithm for Deadlock Avoidance with a suitable example. (10M)
+        <span class="tag sureshot">Sure Shot</span>
+        <span class="tag faculty">Faculty Favorite</span>
+      </div>
+      <div class="answer">
+        <p><strong>Definition:</strong> A deadlock is a state where a set of processes are blocked because each process is holding a resource and waiting for another resource acquired by some other process.</p>
+        <p><strong>Banker's Algorithm:</strong> It checks whether granting a resource request will leave the system in a <span class="highlight">Safe State</span>. It relies on four matrices: Allocation, Max, Available, and Need.</p>
+        <p><strong>Need Matrix Calculation:</strong> <code>Need[i][j] = Max[i][j] - Allocation[i][j]</code></p>
+        <div class="diagram-box">
+          [ Insert Standard 5-Process, 3-Resource Need Matrix Table Here ]<br>
+          <br>
+          Algorithm Execution Trace:<br>
+          Step 1: Check Need &lt;= Available<br>
+          Step 2: Available = Available + Allocation<br>
+          Step 3: Safe Sequence: &lt;P1, P3, P4, P0, P2&gt;
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+    <div class="watermark">CAMPUS-IQ PREMIUM</div>
+
+    <h2>3. Synchronization & Semaphores</h2>
+
+    <div class="q-block">
+      <div class="question">
+        Q3. Explain the Reader-Writer synchronization problem and provide a semaphore-based solution. (5M)
+        <span class="tag repeated">Repeated 3 times</span>
+      </div>
+      <div class="answer">
+        <p><strong>Problem Statement:</strong> Multiple readers can read simultaneously. However, if a writer is writing to the database, no other writer or reader should be allowed access.</p>
+        <p><strong>Semaphores used:</strong><br>
+        - <code>mutex</code> (initialized to 1): Protects the <code>read_count</code> variable.<br>
+        - <code>wrt</code> (initialized to 1): Ensures mutual exclusion for writers.</p>
+        <div class="diagram-box">
+          [ Insert Pseudocode Diagram ]<br>
+          Reader()<br>
+          wait(mutex); read_count++; if (read_count==1) wait(wrt); signal(mutex);<br>
+          ...READ DATABSE...<br>
+          wait(mutex); read_count--; if (read_count==0) signal(wrt); signal(mutex);
+        </div>
+      </div>
+    </div>
+
+    <h2>4. Memory Management (Paging diagrams)</h2>
+
+    <div class="q-block">
+      <div class="question">
+        Q4. Explain Paging hardware. Differentiate it from Segmentation. (10M)
+        <span class="tag expected">High Probability</span>
+      </div>
+      <div class="answer">
+        <p><strong>Paging:</strong> Memory management scheme that eliminates the need for contiguous allocation of physical memory. Logical address is divided into a Page Number (p) and Page Offset (d).</p>
+        <div class="diagram-box">
+          +-------+-------+     +------------+      +---------+<br>
+          |   p   |   d   | --&gt; | Page Table | --&gt;  |  f |  d | (Physical Adr)<br>
+          +-------+-------+     +------------+      +---------+
+        </div>
+        <p><strong>Differences:</strong><br>
+        - Paging: Fixed size blocks (Frames). Solves external fragmentation. Suffers from internal fragmentation.<br>
+        - Segmentation: Variable size blocks (Segments) corresponding to user view. Solves internal fragmentation. Suffers from external fragmentation.</p>
+      </div>
+    </div>
+
+    <h2>5. Page Replacement Solved Problems</h2>
+
+    <div class="q-block">
+      <div class="question">
+        Q5. Consider a reference string: 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2. Assuming 3 frames, find page faults using LRU. (5M)
+        <span class="tag repeated">Repeated 5 times</span>
+        <span class="tag sureshot">Sure Shot</span>
+      </div>
+      <div class="answer">
+        <p>Using <strong>Least Recently Used (LRU)</strong> algorithm, we replace the page that has not been referenced for the longest time.</p>
+        <p><strong>Page Faults Calculation:</strong> 12 Page Faults.<br>
+        <i>Note:</i> In LRU, unlike FIFO, Belady's Anomaly does not occur because it is a stack algorithm.</p>
+      </div>
+    </div>
+    
+    <h2>6. Viva Style Short Questions (2M)</h2>
+    <div class="q-block" style="background: #fff; border: none; padding: 0;">
+      <ul style="color: var(--muted); line-height: 1.8;">
+        <li><strong style="color:var(--text)">Q: What is Thrashing?</strong> A: A state where the system spends more time paging (swapping pages in/out) than executing processes.</li>
+        <li><strong style="color:var(--text)">Q: What is a PCB?</strong> A: Process Control Block, a kernel data structure containing process state, program counter, CPU registers, etc.</li>
+        <li><strong style="color:var(--text)">Q: Define System Call.</strong> A: An interface between a user-level program and the operating system kernel.</li>
+        <li><strong style="color:var(--text)">Q: What is the difference between Starvation and Deadlock?</strong> A: Deadlock is cyclic waiting where no process proceeds. Starvation is where a process waits indefinitely but other processes continue to execute.</li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

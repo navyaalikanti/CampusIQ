@@ -1,0 +1,664 @@
+/* ── Inline Comments & Solved Styling ────────────────────────────────────── */
+.community-comment-section {
+  background: rgba(46, 230, 166, 0.02);
+  border: 1px solid rgba(46, 230, 166, 0.1);
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  padding: 20px;
+  margin-top: -8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comment-item {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.comment-item.best-answer {
+  border-color: rgba(46, 230, 166, 0.3);
+  background: rgba(46, 230, 166, 0.05);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.comment-mini-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--accent-gradient);
+  display: grid;
+  place-items: center;
+  font-size: 8px;
+  font-weight: 800;
+  color: #000;
+}
+
+.comment-author-name {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.comment-time {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.comment-body {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.best-answer-label {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 2px 8px;
+  background: var(--accent);
+  color: #000;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.solve-btn {
+  margin-top: 10px;
+  background: rgba(46, 230, 166, 0.1);
+  border: 1px solid rgba(46, 230, 166, 0.3);
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.solve-btn:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+.comment-composer {
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.comment-composer input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 13px;
+}
+
+.comment-composer button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.solved-live-banner {
+  margin-top: 8px;
+  padding: 12px;
+  background: linear-gradient(90deg, rgba(46, 230, 166, 0.1) 0%, transparent 100%);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.solved-live-banner button {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.premium-status-badge.solved {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: rgba(46, 230, 166, 0.1);
+  color: var(--accent);
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ── Connection Requests ─────────────────────────────────────────────────── */
+.request-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+}
+
+.mini-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--accent-gradient);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #000;
+}
+
+.peer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--accent-gradient);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #000;
+}
+
+.profile-skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.skill-tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+.community-action-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.community-action-btn:hover, .community-action-btn.active {
+  color: var(--accent);
+}
+.community-workspace {
+  min-height: calc(100vh - 64px);
+  grid-template-columns: 1fr;   /* overridden by gridColumn spans in JSX */
+  align-items: start;
+  color: var(--text);
+}
+
+.community-left,
+.community-main,
+.community-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Shared Row utilities ────────────────────────────────────────────────── */
+.community-section-head,
+.community-search-box,
+.community-tab-bar,
+.community-meta-row,
+.community-card-metrics,
+.community-chip-row,
+.community-inline-actions,
+.community-thread-actions,
+.community-author-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.community-section-head {
+  justify-content: space-between;
+}
+
+/* ── Eyebrow label ───────────────────────────────────────────────────────── */
+.community-eyebrow {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ── Search box ──────────────────────────────────────────────────────────── */
+.community-search-box {
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: border-color 0.2s ease;
+}
+.community-search-box:focus-within {
+  border-color: rgba(46, 230, 166, 0.3);
+}
+.community-search-box input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--text);
+  padding: 13px 6px;
+  font: inherit;
+  font-size: 14px;
+}
+
+/* ── Tab navigation ──────────────────────────────────────────────────────── */
+.community-tab-bar {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.community-tab-btn {
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.community-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+.community-tab-btn.active {
+  border-color: rgba(46, 230, 166, 0.4);
+  background: rgba(46, 230, 166, 0.1);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Side section / list ─────────────────────────────────────────────────── */
+.community-side-section,
+.community-list,
+.community-feed-list,
+.community-comments,
+.community-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Feed 2-col grid ─────────────────────────────────────────────────────── */
+.community-feed-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Composer banner ─────────────────────────────────────────────────────── */
+.community-composer-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* ── Post / list / grid cards ────────────────────────────────────────────── */
+.community-post-card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.community-post-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(2px);
+}
+.community-post-card.selected {
+  border-color: rgba(46, 230, 166, 0.4);
+  background: rgba(46, 230, 166, 0.06);
+}
+
+.community-list-card {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.community-list-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Thread view ─────────────────────────────────────────────────────────── */
+.community-thread-view {
+  min-height: 500px;
+}
+
+/* ── Comments ────────────────────────────────────────────────────────────── */
+.community-comment-card {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+
+.community-reply-card {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin-top: 8px;
+  margin-left: 20px;
+}
+
+/* ── Status pills ────────────────────────────────────────────────────────── */
+.community-status-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.community-status-pill.solved {
+  background: rgba(46, 230, 166, 0.14);
+  color: var(--accent);
+}
+.community-status-pill.ai {
+  background: rgba(255, 215, 110, 0.14);
+  color: #f4d992;
+}
+
+/* ── Avatar ──────────────────────────────────────────────────────────────── */
+.community-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(46, 230, 166, 0.16), rgba(212, 175, 55, 0.16));
+  color: var(--text);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.community-avatar.large {
+  width: 48px;
+  height: 48px;
+}
+
+/* ── Live dot ────────────────────────────────────────────────────────────── */
+.community-live-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(46, 230, 166, 0.8);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ── Metric / chip rows ──────────────────────────────────────────────────── */
+.community-card-metrics {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.community-card-metrics span,
+.community-meta-row span,
+.community-empty-text {
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.community-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ── Poll ────────────────────────────────────────────────────────────────── */
+.community-poll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.community-poll-option {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--text);
+}
+.community-poll-option:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.community-poll-option.active {
+  border-color: rgba(46, 230, 166, 0.4);
+  background: rgba(46, 230, 166, 0.07);
+}
+
+/* ── Post Composer Overhaul ──────────────────────────────────────────────── */
+.post-type-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.post-type-selector button {
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.post-type-selector button:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.post-type-selector button.active {
+  background: rgba(46, 230, 166, 0.1);
+  border-color: rgba(46, 230, 166, 0.4);
+  color: var(--accent);
+  box-shadow: 0 4px 12px rgba(46, 230, 166, 0.1);
+}
+
+.composer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+/* ── Reply box ───────────────────────────────────────────────────────────── */
+.community-reply-box {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Grid cards (Network / Teams) ───────────────────────────────────────── */
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.community-grid-full {
+  grid-column: 1 / -1;
+}
+
+/* ── Stat cards ──────────────────────────────────────────────────────────── */
+.community-stat-card {
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Form grid (inside modal) ────────────────────────────────────────────── */
+.community-form-grid input,
+.community-form-grid textarea,
+.community-form-grid select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  outline: 0;
+  color: var(--text);
+  padding: 13px 16px;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+.community-form-grid input:focus,
+.community-form-grid textarea:focus,
+.community-form-grid select:focus {
+  border-color: rgba(46, 230, 166, 0.35);
+}
+.community-form-grid textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ── Modals ──────────────────────────────────────────────────────────────── */
+.community-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 10, 18, 0.85);
+  backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  padding: 24px;
+}
+
+.community-modal {
+  width: min(780px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: rgba(14, 22, 40, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  padding: 32px;
+}
+.community-room-modal {
+  width: min(960px, 100%);
+}
+
+/* ── Jitsi wrapper ───────────────────────────────────────────────────────── */
+.community-jitsi-wrap {
+  margin-top: 12px;
+  height: 66vh;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #000;
+}
+
+/* ── Inline hero card ────────────────────────────────────────────────────── */
+.community-hero-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* ── Misc ────────────────────────────────────────────────────────────────── */
+.community-inline-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.community-thread-copy {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.community-author-head {
+  align-items: flex-start;
+}
+.community-empty-text {
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .community-feed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 1024px) {
+  .community-workspace {
+    grid-template-columns: 1fr !important;
+  }
+}

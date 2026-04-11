@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OS_Last_Minute_Cheat_Sheet</title>
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --paper: #ffffff;
+      --text: #1f2937;
+      --primary: #3b82f6;
+      --danger: #ef4444;
+      --success: #10b981;
+      --muted: #6b7280;
+    }
+    body {
+      margin: 0;
+      padding: 20px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+    .page {
+      background: var(--paper);
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      padding: 40px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+    }
+    .cover-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 500px;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+      border: 4px solid var(--text);
+    }
+    .cover-title {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .cover-subtitle {
+      font-size: 24px;
+      color: var(--danger);
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .badge {
+      background: var(--primary);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .badge.danger { background: var(--danger); }
+    .badge.dark { background: var(--text); }
+    
+    h2 { border-bottom: 2px solid var(--text); padding-bottom: 8px; margin-top: 32px; }
+    h3 { color: var(--primary); margin-bottom: 4px; }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    
+    .callout {
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th, td { border: 1px solid #e5e7eb; padding: 8px 12px; text-align: left; }
+    th { background: #f3f4f6; }
+    
+    ul { padding-left: 20px; line-height: 1.6; }
+    li { margin-bottom: 8px; }
+    .formula { font-family: monospace; background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: var(--danger); }
+  </style>
+</head>
+<body>
+
+  <!-- Cover Page -->
+  <div class="page cover-page">
+    <h1 class="cover-title">Operating Systems</h1>
+    <h2 class="cover-subtitle">Last Minute Cheat Sheet</h2>
+    
+    <div style="font-size: 18px; color: var(--muted); max-width: 500px; line-height: 1.5;">
+      A hyper-compressed summary containing CPU Scheduling, Memory Management, Deadlocks, File Systems, and AI-predicted 10M Semester Questions.
+    </div>
+    
+    <div class="badges">
+      <span class="badge">AI Generated Revision Notes</span>
+      <span class="badge danger">Most Expected PYQs</span>
+      <span class="badge dark">3 Hour Smart Prep</span>
+    </div>
+  </div>
+
+  <!-- Content Page 1 -->
+  <div class="page">
+    <h2>1. CPU Scheduling & Formulas</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Key Metrics</h3>
+        <ul>
+          <li><strong>Turnaround Time (TAT) =</strong> <span class="formula">Completion Time - Arrival Time</span></li>
+          <li><strong>Waiting Time (WT) =</strong> <span class="formula">TAT - Burst Time</span></li>
+          <li><strong>Response Time =</strong> <span class="formula">First Run Time - Arrival Time</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Algorithms</h3>
+        <ul>
+          <li><strong>FCFS:</strong> Non-preemptive, suffers from <i>Convoy Effect</i>.</li>
+          <li><strong>SJF / SRTF:</strong> Optimal, minimum average waiting time. Impossible to predict exact burst times.</li>
+          <li><strong>Round Robin:</strong> Time Quantum (<span class="formula">TQ</span>). If TQ is too large &rarr; FCFS. If too small &rarr; high context switch overhead.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>2. Deadlock (Must Study)</h2>
+    <p>A set of blocked processes each holding a resource and waiting to acquire a resource held by another process in the set.</p>
+    <div class="callout">
+      <strong>4 Necessary Conditions (Coffman Conditions):</strong>
+      <ol>
+        <li><strong>Mutual Exclusion:</strong> At least one resource must be non-shareable.</li>
+        <li><strong>Hold and Wait:</strong> Holding one, waiting for another.</li>
+        <li><strong>No Preemption:</strong> Resources cannot be forcibly taken.</li>
+        <li><strong>Circular Wait:</strong> P0 waits for P1, P1 waits for P2... Pn waits for P0.</li>
+      </ol>
+    </div>
+    <p><strong>Banker's Algorithm:</strong> <span class="formula">Need = Max - Allocation</span>. System is safe if a valid safe sequence exists.</p>
+
+    <h2>3. Synchronization & Semaphores</h2>
+    <p><strong>Semaphore:</strong> An integer variable accessed via <span class="formula">wait(S)</span> (P) and <span class="formula">signal(S)</span> (V).</p>
+    <ul>
+      <li><strong>Mutex:</strong> Binary semaphore (0 or 1).</li>
+      <li><strong>Producer-Consumer Problem:</strong> Needs 3 semaphores: <code>mutex</code> (1), <code>full</code> (0), <code>empty</code> (N).</li>
+    </ul>
+
+    <h2>4. Memory Management (Paging & Segmentation)</h2>
+    <ul>
+      <li><strong>Paging:</strong> Divides physical memory into fixed-sized blocks (<i>Frames</i>) and logical memory into blocks of the same size (<i>Pages</i>). Solves External Fragmentation, suffers from Internal Fragmentation.</li>
+      <li><strong>Translation Lookaside Buffer (TLB):</strong> High-speed hardware cache used to speed up logical-to-physical address translation. <br> <span class="formula">Effective Access Time = Hit_Ratio * (TLB + Mem) + (1-Hit_Ratio) * (TLB + 2*Mem)</span></li>
+      <li><strong>Segmentation:</strong> Variable-sized blocks representing logical segments (code, data, stack).</li>
+    </ul>
+  </div>
+
+  <!-- Content Page 2 -->
+  <div class="page">
+    <h2>5. Page Replacement & Virtual Memory</h2>
+    <p><strong>Virtual Memory:</strong> Separation of logical memory from physical memory, allowing execution of processes larger than physical memory.</p>
+    <table>
+      <tr>
+        <th>Algorithm</th>
+        <th>Concept</th>
+        <th>Issue</th>
+      </tr>
+      <tr>
+        <td><strong>FIFO</strong></td>
+        <td>First In, First Out</td>
+        <td>Belady's Anomaly</td>
+      </tr>
+      <tr>
+        <td><strong>LRU</strong></td>
+        <td>Least Recently Used</td>
+        <td>Needs hardware support</td>
+      </tr>
+      <tr>
+        <td><strong>Optimal</strong></td>
+        <td>Replaces page not used for longest time in future</td>
+        <td>Impossible to implement</td>
+      </tr>
+    </table>
+    <p><strong>Thrashing:</strong> High paging activity. Process spends more time paging than executing. CPU utilization drops drastically.</p>
+
+    <h2>6. Disk Scheduling Formulas</h2>
+    <div class="grid-2">
+      <div>
+        <ul>
+          <li><strong>Seek Time:</strong> Moving disk arm to target cylinder.</li>
+          <li><strong>Rotational Latency:</strong> Waiting for correct sector to spin under head.</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><strong>FCFS:</strong> Process in order of arrival.</li>
+          <li><strong>SSTF:</strong> Shortest Seek Time First (closest request).</li>
+          <li><strong>SCAN / C-SCAN / LOOK:</strong> Elevator algorithms moving across disk.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <h2>10 Most Expected PYQ Questions (AI Predicted)</h2>
+    <div class="callout" style="border-left-color: var(--danger);">
+      <ol style="margin: 0; padding-left: 20px;">
+        <li>Explain the life cycle of a process with a state transition diagram.</li>
+        <li>Differentiate between Multiprogramming and Time Sharing systems.</li>
+        <li>Explain Banker's Algorithm with an example. (10M)</li>
+        <li>Describe the Producer-Consumer problem using Semaphores.</li>
+        <li>Explain Paging hardware structure (Page table, logical vs physical).</li>
+        <li>Compare contiguous, linked, and indexed file allocation methods.</li>
+        <li>Explain LRU and Optimal page replacement with reference string 7,0,1,2...</li>
+        <li>What are the necessary conditions for a deadlock? How it is prevented?</li>
+        <li>Write short notes on Thrashing & Belady's Anomaly.</li>
+        <li>Differentiate between User-level threads and Kernel-level threads.</li>
+      </ol>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+.dashboard-hq-shell {
+  max-width: none;
+}
+
+.dashboard-hq-main {
+  gap: 1rem;
+}
+
+.dashboard-hq-hero {
+  align-items: flex-start;
+}
+
+.dashboard-hq-hero p {
+  margin-top: 0.85rem;
+  color: rgba(249, 250, 251, 0.7);
+  line-height: 1.65;
+  max-width: 44rem;
+}
+
+.dashboard-profile-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.dashboard-profile-pills span {
+  min-height: 2.1rem;
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  border: 1px solid rgba(249, 250, 251, 0.08);
+  background: rgba(249, 250, 251, 0.04);
+  color: rgba(249, 250, 251, 0.82);
+  font-size: 0.82rem;
+}
+
+.dashboard-hq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.85fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.dashboard-hq-primary,
+.dashboard-hq-sidebar {
+  min-width: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.dashboard-hq-sidebar {
+  position: sticky;
+  top: 1rem;
+}
+
+.dashboard-hq-modules {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dashboard-hq-module {
+  min-height: 11.5rem;
+}
+
+.dashboard-hq-module:hover {
+  border-color: rgba(34, 197, 94, 0.24);
+}
+
+.dashboard-hq-widgets {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dashboard-hq-panel {
+  min-height: 18rem;
+}
+
+.workspace-state-panel {
+  min-height: 16rem;
+  display: grid;
+  place-items: center;
+  gap: 0.8rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1.8rem;
+  border: 1px solid rgba(249, 250, 251, 0.08);
+  background:
+    linear-gradient(180deg, rgba(31, 41, 55, 0.64) 0%, rgba(11, 15, 25, 0.9) 100%);
+  box-shadow:
+    0 24px 50px rgba(2, 6, 23, 0.3),
+    inset 0 1px 0 rgba(249, 250, 251, 0.04);
+}
+
+.workspace-state-panel strong {
+  font-size: 1.02rem;
+  letter-spacing: -0.03em;
+}
+
+.workspace-state-panel p {
+  color: rgba(249, 250, 251, 0.66);
+  line-height: 1.65;
+  max-width: 34rem;
+}
+
+.workspace-state-panel.is-loading {
+  color: rgba(249, 250, 251, 0.72);
+}
+
+.workspace-state-panel.is-error {
+  justify-items: center;
+}
+
+@media (max-width: 1280px) {
+  .dashboard-hq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-hq-sidebar {
+    position: static;
+  }
+
+  .dashboard-hq-modules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard-hq-modules,
+  .dashboard-hq-widgets {
+    grid-template-columns: 1fr;
+  }
+}
