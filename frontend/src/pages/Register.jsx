@@ -58,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <section className="premium-grid-base" style={{ height: '100vh', padding: '64px', background: 'var(--bg)', display: 'grid', gridTemplateColumns: '1.2fr 1fr', alignItems: 'center', gap: '80px' }}>
+    <section className="auth-split-page">
       
       {/* Left-Aligned Branding Section */}
       <div className="flex-column gap-32 fade-in">
