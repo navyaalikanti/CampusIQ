@@ -346,7 +346,6 @@ const StudyGenie = () => {
                   </button>
                 ))}
              </div>
-          </div>
         </main>
       ) : (
         <>
