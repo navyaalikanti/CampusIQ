@@ -5457,6 +5457,20 @@ html[data-theme='light'] .footer-bottom {
 .db-link-card { min-height: 160px; padding: 28px 20px; text-align: center; }
 .db-mentor-spotlight-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 
+/* --- Messages (Mentorship Hub) Base Styles (Desktop) --- */
+.ms-container { height: calc(100vh - 64px); padding: 24px; background: transparent; overflow: hidden; display: flex; }
+.ms-inbox { height: 100%; overflow: hidden; padding: 0; display: flex; flex-direction: column; }
+.ms-chat-area { flex: 1; height: 100%; padding: 0; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.ms-chat-header { padding: 24px 32px; border-bottom: 1px solid var(--border-subtle); background: var(--surface); z-index: 10; display: flex; justify-content: space-between; }
+.ms-messages-scroll { flex: 1; overflow-y: auto; background: rgba(255,255,255,0.01); padding: 32px; display: flex; flex-direction: column; }
+
+/* --- Live Classes Base Styles (Desktop) --- */
+.lc-container { padding: 32px 0; }
+.lc-header { grid-column: span 12; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
+.lc-live-grid { grid-column: span 12; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; padding: 0 !important; }
+.lc-live-grid article { grid-column: span 6; display: flex; justify-content: space-between; padding: 32px; }
+.lc-upcoming-grid { grid-column: span 12; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+
 /* --- Collab Score Base Styles (Desktop) --- */
 .cs-header { grid-column: span 12; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
 .cs-stats-grid { grid-column: span 8; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
@@ -5716,6 +5730,22 @@ html[data-theme='light'] .footer-bottom {
   .cs-header > div:last-child { width: 100% !important; }
   .cs-stats-grid { display: flex !important; flex-direction: column !important; gap: 16px !important; }
   .cs-leaderboard-sidebar { order: -1 !important; margin-bottom: 24px !important; }
+
+  /* --- Messages (Mentorship Hub) Workspace --- */
+  .ms-container { padding: 80px 16px 20px !important; flex-direction: column !important; height: auto !important; overflow: visible !important; gap: 32px !important; }
+  .ms-inbox { width: 100% !important; height: 500px !important; max-height: 500px !important; border-bottom: 1px solid var(--border-subtle); flex-shrink: 0 !important; }
+  .ms-chat-area { width: 100% !important; height: 700px !important; min-height: 600px !important; border-top: 1px solid var(--border-subtle); }
+  .ms-chat-header { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; padding: 20px !important; }
+  .ms-chat-header .flex-row:last-child { width: 100% !important; justify-content: space-between !important; }
+  .ms-messages-scroll { padding: 24px 16px !important; }
+
+  /* --- Live Classes Workspace --- */
+  .lc-container { padding: 80px 16px 40px !important; }
+  .lc-header { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; margin-bottom: 32px !important; }
+  .lc-header .premium-button { width: 100% !important; justify-content: center !important; }
+  .lc-live-grid { display: flex !important; flex-direction: column !important; gap: 16px !important; }
+  .lc-live-grid article { grid-column: 1 / -1 !important; width: 100% !important; flex-direction: column !important; gap: 20px !important; padding: 24px !important; }
+  .lc-upcoming-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
 }
 
 

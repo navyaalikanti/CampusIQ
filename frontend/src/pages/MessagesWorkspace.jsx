@@ -554,8 +554,8 @@ const MessagesWorkspace = () => {
 
   return (
     <>
-      <div className="flex-row gap-24" style={{ height: 'calc(100vh - 64px)', padding: '24px', background: 'transparent', overflow: 'hidden' }}>
-        <aside className="flex-column gap-20" style={{ width: studentMode ? '30%' : '32%', height: '100%', overflow: 'hidden', padding: 0 }}>
+      <div className="flex-row gap-24 ms-container">
+        <aside className="flex-column gap-20 ms-inbox">
           <header className="flex-column gap-6" style={{ width: '100%', padding: '0 4px' }}>
             <div className="flex-row gap-8 items-center" style={{ color: 'var(--accent)' }}>
               <Inbox size={16} />
@@ -664,7 +664,7 @@ const MessagesWorkspace = () => {
         </div>
       </aside>
 
-      <main className="premium-card flex-column" style={{ flex: 1, height: '100%', padding: 0, overflow: 'hidden' }}>
+      <main className="premium-card flex-column ms-chat-area">
         {!activeWithUserId ? (
           <div className="flex-column items-center justify-center gap-24" style={{ flex: 1, opacity: 0.35 }}>
             <MessageCircle size={64} />
@@ -672,7 +672,7 @@ const MessagesWorkspace = () => {
           </div>
         ) : (
           <>
-            <header className="flex-row justify-between items-center" style={{ padding: '24px 32px', borderBottom: '1px solid var(--border-subtle)', background: 'var(--surface)', zIndex: 10 }}>
+            <header className="flex-row items-center ms-chat-header">
               <div className="flex-row gap-14 items-center">
                 <div style={{ width: 48, height: 48, borderRadius: '14px', background: 'rgba(46, 230, 166, 0.08)', border: '1px solid rgba(46, 230, 166, 0.15)', color: 'var(--accent)', display: 'grid', placeItems: 'center', fontWeight: 'bold', overflow: 'hidden', flexShrink: 0 }}>
                   {activeDisplayAvatar ? (
@@ -729,7 +729,7 @@ const MessagesWorkspace = () => {
               </div>
             </header>
 
-            <div className="flex-column gap-16 p-32" style={{ flex: 1, overflowY: 'auto', background: 'rgba(255,255,255,0.01)' }}>
+            <div className="flex-column gap-16 ms-messages-scroll">
               {chatNotice ? (
                 <div className="premium-card" style={{ background: 'var(--surface-elevated)', border: '1px solid var(--border-strong)', maxWidth: '520px' }}>
                   <p className="premium-text-meta">{chatNotice}</p>

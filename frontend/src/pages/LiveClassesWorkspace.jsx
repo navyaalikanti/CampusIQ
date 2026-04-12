@@ -87,8 +87,8 @@ const LiveClassesWorkspace = () => {
   }
 
   return (
-    <div className="premium-grid-base">
-      <header style={{ gridColumn: 'span 12', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px' }}>
+    <div className="premium-grid-base lc-container">
+      <header className="lc-header">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent)', marginBottom: '8px' }}>
             <Radio size={16} />
@@ -109,7 +109,7 @@ const LiveClassesWorkspace = () => {
             <div className="community-live-dot" />
             <h3 className="premium-text-h3" style={{ margin: 0, letterSpacing: '0.05em' }}>HAPPENING NOW</h3>
           </div>
-          <div className="premium-grid-base" style={{ padding: 0 }}>
+          <div className="premium-grid-base lc-live-grid" style={{ padding: 0 }}>
             {data.liveNow.map((session) => (
               <article key={session.id} className="premium-card" style={{ gridColumn: 'span 6', padding: '32px', display: 'flex', justifyContent: 'space-between', background: 'rgba(46,230,166,0.06)', borderColor: 'rgba(46,230,166,0.2)' }}>
                 <div style={{ flex: 1 }}>
@@ -134,7 +134,7 @@ const LiveClassesWorkspace = () => {
 
       {/* Upcoming Grid */}
       <h3 className="premium-text-meta" style={{ gridColumn: 'span 12', marginBottom: '16px', letterSpacing: '0.1em' }}>UPCOMING SESSIONS</h3>
-      <div style={{ gridColumn: 'span 12', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '20px' }}>
+      <div className="lc-upcoming-grid">
         {data?.upcoming?.length ? data.upcoming.map((session) => (
           <article key={session.id} className="premium-card" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
