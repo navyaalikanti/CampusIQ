@@ -42,7 +42,6 @@ Built from real student problems, CampusIQ transforms scattered tools into a str
 Frontend:
 - React.js
 - Vite
-- Tailwind CSS
 
 Backend:
 - Node.js
