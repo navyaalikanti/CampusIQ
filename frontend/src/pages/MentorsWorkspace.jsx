@@ -191,6 +191,8 @@ const MentorsWorkspace = () => {
         )}
 
         {!loading && !error && mentors.map((mentor) => (
+          <article
+            key={mentor.id}
             className="premium-card flex-column gap-20 mw-mentor-card"
             style={{
               gridColumn: 'span 4',
