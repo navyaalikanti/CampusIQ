@@ -5435,9 +5435,11 @@ html[data-theme='light'] .footer-bottom {
     justify-content: center;
   }
 
-  /* Scroll indicator hidden on small screens */
+  /* Scroll indicator visible on small screens */
   .lp-scroll-indicator {
-    display: none;
+    display: flex;
+    bottom: 1.5rem; /* Slightly lower on mobile to stay clear of CTAs */
+    opacity: 0.8;
   }
 
   /* Shell padding */
