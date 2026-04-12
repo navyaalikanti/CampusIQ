@@ -99,16 +99,23 @@ npm run dev
 
 # Backend Setup
 ```
-cd ../backend
-npm install
+cd backend && npm install
 ```
 
 
 # Add the following variables in backend .env
 ```
+# Backend Environment Variables (.env)
+
 PORT=5000
-MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_secret
+
+# Firebase Admin SDK
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_PRIVATE_KEY=your_private_key
+FIREBASE_CLIENT_EMAIL=your_client_email
+
+# Supabase (for PDF storage)
 SUPABASE_URL=your_supabase_url
 SUPABASE_SERVICE_KEY=your_service_key
 ```
@@ -135,11 +142,15 @@ CampusIQ brings everything into one structured platform designed for campus-leve
 
 
 
-# Inspiration
+# Conclusion
 
-No one understands a student better than a student.
+CampusIQ is built to simplify and structure the way students learn, collaborate, and prepare within a campus.
+
+By combining resource sharing, quality-based note selection, last-day preparation strategies, mentorship, and collaborative learning into a single platform, it removes the need to switch between multiple unorganized tools.
+
+The platform focuses on real student behavior and provides a practical, efficient, and structured solution to everyday academic challenges.
+
+CampusIQ aims to transform scattered efforts into a connected and productive learning experience.
 
 
-# Support
 
-Star the repository, share feedback, and contribute to improve the project.
