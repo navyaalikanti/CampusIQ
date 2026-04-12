@@ -48,8 +48,8 @@ const CollabScorePage = () => {
   const { me, leaderboard } = data;
 
   return (
-    <div className="premium-grid-base">
-      <header style={{ gridColumn: 'span 12', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px' }}>
+    <div className="premium-grid-base cs-container">
+      <header className="cs-header">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent)', marginBottom: '8px' }}>
             <Zap size={16} fill="var(--accent)" />
@@ -70,7 +70,7 @@ const CollabScorePage = () => {
       </header>
 
       {/* Stats Breakdown */}
-      <div style={{ gridColumn: 'span 8', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
+      <div className="cs-stats-grid">
         <section className="premium-card" style={{ gridColumn: 'span 2', padding: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'relative', zIndex: 1 }}>
             <h2 className="premium-text-h2" style={{ margin: 0, fontSize: '48px' }}>{me.collabScore}</h2>
@@ -117,7 +117,7 @@ const CollabScorePage = () => {
       </div>
 
       {/* Leaderboard */}
-      <aside style={{ gridColumn: 'span 4' }}>
+      <aside className="cs-leaderboard-sidebar">
         <section className="premium-card" style={{ height: '100%', padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3 className="premium-text-h3" style={{ margin: 0, fontSize: '18px' }}>Weekly Top 10</h3>

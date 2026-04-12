@@ -82,7 +82,7 @@ const StudyRoomsPage = () => {
   return (
     <div className="sr-list-page">
       {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '36px' }}>
+      <div className="sr-header">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', color: 'var(--accent)' }}>
             <Hash size={16} />
@@ -98,7 +98,7 @@ const StudyRoomsPage = () => {
 
       {/* Popular Rooms */}
       {popular.length > 0 && (
-        <section style={{ marginBottom: '40px' }}>
+        <section className="sr-rooms-section">
           <div className="sr-section-label">
             <TrendingUp size={13} /> Trending Rooms
           </div>
@@ -112,7 +112,7 @@ const StudyRoomsPage = () => {
 
       {/* Your Rooms */}
       {myRooms.length > 0 && (
-        <section style={{ marginBottom: '40px' }}>
+        <section className="sr-rooms-section">
           <div className="sr-section-label">
             <Zap size={13} /> Your Rooms
           </div>
@@ -126,7 +126,7 @@ const StudyRoomsPage = () => {
 
       {/* Discover */}
       {discover.length > 0 && (
-        <section style={{ marginBottom: '40px' }}>
+        <section className="sr-rooms-section">
           <div className="sr-section-label">
             <BookOpen size={13} /> Discover Rooms
           </div>

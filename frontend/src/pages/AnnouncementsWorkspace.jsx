@@ -78,8 +78,8 @@ const AnnouncementsWorkspace = () => {
   }
 
   return (
-    <div className="premium-grid-base">
-      <header style={{ gridColumn: 'span 12', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px' }}>
+    <div className="premium-grid-base an-container">
+      <header className="an-header">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent)', marginBottom: '8px' }}>
             <Megaphone size={16} />
@@ -95,16 +95,16 @@ const AnnouncementsWorkspace = () => {
         )}
       </header>
 
-      <div style={{ gridColumn: 'span 12', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div className="flex-column gap-20 an-content-stack">
         {sortedAnnouncements.length ? sortedAnnouncements.map((ann) => {
           const category = CATEGORIES.find(c => c.id === ann.category) || CATEGORIES[4];
           return (
-            <article key={ann.id} className="premium-card" style={{ 
+            <article key={ann.id} className="premium-card an-card" style={{ 
               borderLeft: ann.isPinned ? `4px solid var(--accent)` : `4px solid ${category.color}`,
               padding: '24px',
               position: 'relative'
             }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
+              <div className="flex-row an-card-header">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <span className="premium-chip" style={{ background: `${category.color}20`, color: category.color }}>
                     {category.label}
@@ -125,7 +125,7 @@ const AnnouncementsWorkspace = () => {
                 {ann.content}
               </p>
 
-              <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className="flex-row an-card-footer">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <div style={{ width: 32, height: 32, borderRadius: '8px', background: 'var(--accent-gradient)', display: 'grid', placeItems: 'center', fontSize: '12px', fontWeight: 700 }}>
                     {ann.author?.name?.[0] || 'A'}

@@ -213,7 +213,7 @@ const DiscussionsWorkspace = () => {
     name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
 
   return (
-    <div className="community-workspace premium-grid-base">
+    <div className="community-workspace premium-grid-base cm-container">
       
       {/* User Profile Drawer */}
       <UserProfileDrawer 
@@ -224,13 +224,13 @@ const DiscussionsWorkspace = () => {
       />
 
       {/* Main Feed */}
-      <main className="community-main" style={{ gridColumn: 'span 12' }}>
+      <main className="community-main cm-main" style={{ gridColumn: 'span 12' }}>
         
         {activeTab === 'feed' && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '24px' }}>
+          <div className="cm-feed-layout">
             <div className="flex-column gap-20">
               {/* Composer */}
-              <section className="premium-card" style={{ padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(46,230,166,0.03)' }}>
+              <section className="premium-card cm-composer-banner">
                 <div>
                   <h3 className="premium-text-h3" style={{ margin: 0 }}>Got a doubt or achievement?</h3>
                   <p className="premium-text-meta" style={{ margin: 0 }}>Share it with the campus ecosystem.</p>
@@ -241,7 +241,7 @@ const DiscussionsWorkspace = () => {
               </section>
 
               {/* Filters */}
-              <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', scrollbarWidth: 'none' }}>
+              <div className="cm-filter-scroll">
                 <button
                   className="premium-chip"
                   style={{ cursor: 'pointer', border: '1px solid', borderColor: activeFilter === 'all' ? 'var(--accent)' : 'transparent', background: activeFilter === 'all' ? 'rgba(46,230,166,0.1)' : 'rgba(255,255,255,0.05)', color: activeFilter === 'all' ? 'var(--accent)' : 'var(--text)', transition: 'all 0.2s', display: 'flex', alignItems: 'center' }}
@@ -399,7 +399,7 @@ const DiscussionsWorkspace = () => {
             </div>
 
             {/* Right Panel */}
-            <aside className="flex-column gap-24">
+            <aside className="flex-column gap-24 cm-sidebar">
               <div className="community-search-box premium-card">
                 <Search size={16} />
                 <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search discussions..." style={{ width: '100%', background: 'transparent', border: 'none', color: 'var(--text)', outline: 'none' }} />
@@ -464,9 +464,9 @@ const DiscussionsWorkspace = () => {
 
             <div className="premium-card" style={{ padding: '32px' }}>
               <h2 className="premium-text-h2">Find Peer Mentors</h2>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', marginTop: '24px' }}>
+              <div className="cm-network-grid">
                 {(data.profiles || []).map(profile => (
-                  <article key={profile.id} className="premium-card" style={{ padding: '20px', cursor: 'pointer' }} onClick={() => setOpenedProfileId(profile.id)}>
+                  <article key={profile.id} className="premium-card cm-peer-card" onClick={() => setOpenedProfileId(profile.id)}>
                     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                        <div className="peer-avatar">{getInitials(profile.name)}</div>
                        <div>
