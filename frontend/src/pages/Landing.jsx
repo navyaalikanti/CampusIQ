@@ -119,10 +119,7 @@ const Landing = () => {
           <div className="lp-hero-copy">
             <div className="landing-kicker">Premium EdTech Intelligence</div>
             <h1 className="lp-hero-h1">
-              <span className="lp-hero-line">
-                Turn campus <span className="lp-accent">{dynamicText}<span className="lp-cursor">|</span></span>
-              </span>
-              <span className="lp-hero-line">into smart learning</span>
+              Turn campus <span className="lp-accent">{dynamicText}<span className="lp-cursor">|</span></span> into smart learning
             </h1>
             <p className="lp-hero-sub premium-text-body">
               AI-powered learning, trusted collaboration, and exam-ready intelligence for the modern campus.
