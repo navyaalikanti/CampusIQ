@@ -4943,16 +4943,17 @@ html[data-theme='light'] .footer-bottom {
 }
 
 .lp-hero-h1 {
-  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
   color: var(--text-main);
   line-height: 1.05;
   font-weight: 800;
   margin: 1rem 0 1.5rem;
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
-.lp-hero-line {
-  display: block;
+.lp-mobile-br {
+  display: none;
 }
 
 .lp-accent {
@@ -5359,8 +5360,8 @@ html[data-theme='light'] .footer-bottom {
     white-space: normal !important;
   }
 
-  .lp-hero-line {
-    white-space: normal !important;
+  .lp-mobile-br {
+    display: block !important;
   }
 
   .lp-hero-sub {
