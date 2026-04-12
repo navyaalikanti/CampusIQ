@@ -4955,6 +4955,11 @@ html[data-theme='light'] .footer-bottom {
   display: none;
 }
 
+.lp-hero-top-row {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .lp-accent {
   color: var(--accent);
 }
@@ -5361,6 +5366,11 @@ html[data-theme='light'] .footer-bottom {
 
   .lp-mobile-br {
     display: block !important;
+  }
+
+  .lp-hero-top-row {
+    display: inline !important;
+    white-space: normal !important;
   }
 
   .lp-hero-sub {
