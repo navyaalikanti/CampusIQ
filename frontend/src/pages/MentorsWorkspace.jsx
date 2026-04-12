@@ -105,15 +105,15 @@ const MentorsWorkspace = () => {
   }
 
   return (
-    <div className="premium-grid-base" style={{ padding: '32px 0' }}>
-      <div className="flex-row items-center gap-12" style={{ gridColumn: 'span 12', marginBottom: '24px' }}>
+    <div className="premium-grid-base mw-container">
+      <div className="flex-row items-center gap-12 mw-header">
         <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(46, 230, 166, 0.1)', display: 'grid', placeItems: 'center', color: 'var(--accent)' }}>
           <Users size={20} />
         </div>
         <h1 className="premium-text-h1" style={{ margin: 0, fontSize: '32px', fontWeight: 800 }}>Mentors</h1>
       </div>
 
-        <div className="flex-column gap-24" style={{ gridColumn: 'span 12', marginBottom: '40px' }}>
+        <div className="flex-column gap-24 mw-filters-section">
           <div className="flex-row gap-16 items-center" style={{ background: 'var(--surface-elevated)', padding: '16px 24px', borderRadius: '20px', border: '1px solid var(--border-subtle)' }}>
             <Search size={20} color="var(--accent)" />
             <input
@@ -124,7 +124,7 @@ const MentorsWorkspace = () => {
               style={{ flex: 1, background: 'none', border: 'none', outline: 'none', color: 'var(--text-main)', fontSize: '16px' }}
             />
           </div>
-          <div className="premium-grid-base" style={{ padding: 0, gap: '24px' }}>
+          <div className="premium-grid-base mw-filter-grid" style={{ padding: 0, gap: '24px' }}>
             <div className="flex-column gap-10" style={{ gridColumn: 'span 4' }}>
               <label className="premium-text-meta" style={{ fontSize: '12px', color: 'var(--accent)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Subject</label>
               <div style={{ background: 'var(--surface-elevated)', border: '1px solid var(--border-subtle)', borderRadius: '14px', padding: '14px 18px' }}>
@@ -191,9 +191,7 @@ const MentorsWorkspace = () => {
         )}
 
         {!loading && !error && mentors.map((mentor) => (
-          <article
-            key={mentor.id}
-            className="premium-card flex-column gap-20"
+            className="premium-card flex-column gap-20 mw-mentor-card"
             style={{
               gridColumn: 'span 4',
               minHeight: '100%',
@@ -282,8 +280,7 @@ const MentorsWorkspace = () => {
       {selectedMentor ? (
         <>
           <div className="profile-panel-backdrop" style={{ position: 'fixed', inset: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(12px)', zIndex: 1000 }} onClick={() => setSelectedMentor(null)} />
-          <aside className="profile-panel" style={{ 
-            position: 'fixed',
+          <aside className="profile-panel mw-mentor-drawer" style={{             position: 'fixed',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
@@ -298,9 +295,9 @@ const MentorsWorkspace = () => {
             boxShadow: '0 30px 90px rgba(0,0,0,0.6)',
             display: 'block'
           }}>
-            <div className="flex-column gap-32" style={{ padding: '40px 48px' }}>
-              <div className="flex-row justify-between items-start gap-24">
-                <div className="flex-row gap-20 items-center">
+            <div className="flex-column mw-drawer-content">
+              <div className="flex-row mw-drawer-header">
+                <div className="flex-row mw-drawer-mentor-info">
                     <div style={{ width: 80, height: 80, borderRadius: '24px', overflow: 'hidden', background: 'var(--surface-elevated)', border: '1px solid var(--border-subtle)', display: 'grid', placeItems: 'center', fontWeight: 800, fontSize: '24px' }}>
                     {selectedMentor.profilePic ? (
                       <img src={selectedMentor.profilePic} alt={selectedMentor.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -322,7 +319,7 @@ const MentorsWorkspace = () => {
                 </button>
               </div>
 
-              <div className="premium-grid-base" style={{ padding: 0, gap: '24px' }}>
+              <div className="premium-grid-base mw-drawer-stats-grid" style={{ padding: 0, gap: '24px' }}>
                 <section className="premium-card flex-column gap-16" style={{ gridColumn: 'span 4', background: 'rgba(46, 230, 166, 0.03)', border: '1px solid rgba(46, 230, 166, 0.15)', padding: '24px' }}>
                   <div className="flex-row justify-between items-center">
                     <span className="premium-text-meta" style={{ fontSize: '12px', opacity: 0.7 }}>Match Score</span>
@@ -372,7 +369,7 @@ const MentorsWorkspace = () => {
                 </section>
 
                 <section className="premium-card flex-column gap-24" style={{ gridColumn: 'span 12', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-subtle)', padding: '32px' }}>
-                  <div className="premium-grid-base" style={{ padding: 0, gap: '32px' }}>
+                  <div className="premium-grid-base mw-drawer-details-grid" style={{ padding: 0, gap: '32px' }}>
                     <div className="flex-column gap-20" style={{ gridColumn: 'span 6' }}>
                       <div className="flex-column gap-8">
                         <div className="flex-row gap-8 items-center" style={{ color: 'var(--primary)' }}>

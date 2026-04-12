@@ -5458,12 +5458,31 @@ html[data-theme='light'] .footer-bottom {
 .db-mentor-spotlight-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 
 .sg-app-container { height: calc(100vh - 64px); overflow: hidden; padding: 0; background: transparent; }
-.sg-pre-workspace { padding: 32px; height: 100%; width: 100%; display: flex; flex-direction: column; }
-.sg-main-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+.sg-pre-workspace { padding: 32px; height: 100%; width: 100%; display: flex; flex-direction: column; min-height: calc(100vh - 64px); }
+.sg-main-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-shrink: 0; }
 .sg-stats-row { display: flex; gap: 32px; align-items: center; margin-bottom: 8px; }
 
-.sg-selection-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 60px; }
+.sg-selection-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 60px; width: 100%; }
 .sg-mode-toggles { display: flex; gap: 8px; }
+
+/* --- Mentor Directory Base Styles (Desktop) --- */
+.mw-container { padding: 32px 0; }
+.mw-header { grid-column: span 12; margin-bottom: 24px; }
+.mw-filters-section { grid-column: span 12; margin-bottom: 40px; }
+.mw-filter-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; padding: 0 !important; }
+.mw-filter-grid > div { grid-column: span 4; }
+.mw-mentor-card { grid-column: span 4; display: flex; flex-direction: column; }
+
+.mw-drawer-content { padding: 40px 48px; display: flex; flex-direction: column; gap: 32px; }
+.mw-drawer-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.mw-drawer-mentor-info { display: flex; gap: 20px; align-items: center; }
+
+.mw-drawer-stats-grid { display: grid; grid-template-columns: repeat(12, 1fr); padding: 0 !important; gap: 24px; }
+.mw-drawer-stats-grid > section:first-child { grid-column: span 4; }
+.mw-drawer-stats-grid > section:last-child { grid-column: span 8; }
+
+.mw-drawer-details-grid { display: grid; grid-template-columns: repeat(12, 1fr); padding: 0 !important; gap: 32px; }
+.mw-drawer-details-grid > div { grid-column: span 6; }
 .sg-feature-palettes { display: flex; gap: 32px; width: 100%; max-width: 900px; justify-content: center; }
 .sg-feature-palette { min-width: 220px; }
 
@@ -5597,6 +5616,51 @@ html[data-theme='light'] .footer-bottom {
 
   .sg-workspace-main .sg-feature-palettes {
     display: flex !important;
+  }
+
+  /* --- Mentors Directory Workspace --- */
+  .mw-container { padding: 80px 16px 40px !important; display: flex !important; flex-direction: column !important; }
+  .mw-header { margin-bottom: 24px !important; display: flex !important; align-items: center !important; gap: 12px !important; }
+  .mw-header h1 { font-size: 28px !important; }
+
+  .mw-filters-section { margin-bottom: 32px !important; width: 100% !important; }
+  .mw-filter-grid { 
+    display: flex !important; 
+    flex-direction: column !important; 
+    gap: 16px !important; 
+    width: 100% !important; 
+  }
+  .mw-filter-grid > div { grid-column: 1 / -1 !important; width: 100% !important; }
+
+  .mw-mentor-card { 
+    grid-column: 1 / -1 !important; 
+    width: 100% !important; 
+    padding: 24px !important; 
+    min-height: auto !important;
+  }
+
+  .mw-mentor-drawer { 
+    width: 100% !important; 
+    height: 100vh !important; 
+    max-height: 100vh !important; 
+    top: 50% !important; 
+    border-radius: 0 !important; 
+    border: none !important; 
+  }
+  .mw-drawer-content { padding: 80px 20px 40px !important; gap: 24px !important; }
+  .mw-drawer-header { flex-direction: column-reverse !important; align-items: flex-start !important; gap: 20px !important; }
+  .mw-drawer-header button { align-self: flex-end !important; }
+  .mw-drawer-mentor-info { gap: 16px !important; }
+  .mw-drawer-mentor-info h2 { font-size: 24px !important; }
+
+  .mw-drawer-stats-grid, .mw-drawer-details-grid { 
+    display: flex !important; 
+    flex-direction: column !important; 
+    gap: 20px !important; 
+  }
+  .mw-drawer-stats-grid > section, .mw-drawer-details-grid > div { 
+    grid-column: 1 / -1 !important; 
+    width: 100% !important; 
   }
 }
 
