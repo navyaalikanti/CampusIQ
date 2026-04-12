@@ -4960,6 +4960,10 @@ html[data-theme='light'] .footer-bottom {
   white-space: nowrap;
 }
 
+.lp-hero-bottom-row {
+  white-space: nowrap;
+}
+
 .lp-accent {
   color: var(--accent);
 }
@@ -5370,6 +5374,10 @@ html[data-theme='light'] .footer-bottom {
 
   .lp-hero-top-row {
     display: inline !important;
+    white-space: normal !important;
+  }
+
+  .lp-hero-bottom-row {
     white-space: normal !important;
   }
 
