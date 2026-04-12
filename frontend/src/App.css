@@ -5444,6 +5444,45 @@ html[data-theme='light'] .footer-bottom {
 }
 
 /* ==========================================================================
+   Dashboard & Study Genie Base Styles (Desktop)
+   ========================================================================== */
+.db-mentor-dashboard { padding: 40px; }
+.db-mentor-hero { padding: 40px !important; }
+.db-hero-content { display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+.db-hero-info { display: flex; gap: 28px; align-items: center; }
+.db-hero-actions { min-width: 280px; }
+
+.db-stats-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+.db-links-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+.db-link-card { min-height: 160px; padding: 28px 20px; text-align: center; }
+.db-mentor-spotlight-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+
+.sg-app-container { height: calc(100vh - 64px); overflow: hidden; padding: 0; background: transparent; }
+.sg-pre-workspace { padding: 32px; height: 100%; width: 100%; display: flex; flex-direction: column; }
+.sg-main-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+.sg-stats-row { display: flex; gap: 32px; align-items: center; margin-bottom: 8px; }
+
+.sg-selection-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 60px; }
+.sg-mode-toggles { display: flex; gap: 8px; }
+.sg-feature-palettes { display: flex; gap: 32px; width: 100%; max-width: 900px; justify-content: center; }
+.sg-feature-palette { min-width: 220px; }
+
+.sg-workspace-main { 
+  height: 100%; 
+  overflow-y: auto !important; 
+  background: transparent; 
+  padding: 32px;
+  transition: all 0.3s ease; 
+  border-right: 1px solid var(--border-subtle);
+}
+.sg-workspace-pdf { 
+  height: 100%; 
+  background: transparent; 
+  position: relative; 
+  transition: all 0.3s ease; 
+}
+
+/* ==========================================================================
    Dashboard & Study Genie Mobile Layer (Breakpoint: 768px)
    ========================================================================== */
 @media (max-width: 768px) {
