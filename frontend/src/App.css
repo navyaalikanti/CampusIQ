@@ -5487,61 +5487,90 @@ html[data-theme='light'] .footer-bottom {
    ========================================================================== */
 @media (max-width: 768px) {
   /* --- Dashboard Workspace --- */
-  .db-mentor-dashboard { padding: 20px !important; }
-  
-  .db-mentor-hero { padding: 24px !important; }
-  .db-hero-content { flex-direction: column; align-items: flex-start !important; gap: 24px !important; }
-  .db-hero-info { flex-direction: column; align-items: flex-start !important; gap: 20px !important; }
-  .db-hero-info h1 { font-size: 32px !important; }
-  
-  .db-hero-actions { min-width: 100% !important; width: 100%; }
-  .db-hero-actions .premium-button, 
-  .db-hero-actions .premium-button-secondary { width: 100% !important; justify-content: center; }
-
-  .db-stats-grid, .db-links-grid, .db-mentor-preview-grid {
+  .db-mentor-dashboard, .db-student-dashboard { 
+    padding: 16px !important; 
     display: flex !important;
     flex-direction: column !important;
+    gap: 24px !important;
+  }
+  
+  .db-mentor-hero { padding: 20px !important; grid-column: 1 / -1 !important; }
+  .db-hero-content { flex-direction: column !important; align-items: flex-start !important; gap: 24px !important; }
+  .db-hero-info { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
+  .db-hero-info h1 { font-size: 28px !important; line-height: 1.2 !important; }
+  
+  .db-hero-actions { min-width: 100% !important; width: 100% !important; margin-top: 10px; }
+  .db-hero-actions .premium-button, 
+  .db-hero-actions .premium-button-secondary { width: 100% !important; justify-content: center !important; }
+
+  /* Force grids to single column stacks */
+  .db-stats-grid, 
+  .db-links-grid, 
+  .db-mentor-preview-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
     gap: 16px !important;
+    width: 100% !important;
   }
   
   .db-stats-grid > div, 
   .db-links-grid > a, 
   .db-mentor-preview-grid > article {
-    grid-column: span 12 !important;
-    width: 100%;
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
 
-  .db-link-card { min-height: auto !important; padding: 24px !important; }
-  .db-mentor-spotlight-header { flex-direction: column; align-items: flex-start !important; gap: 20px !important; }
-  .db-mentor-spotlight-header .premium-button { width: 100% !important; justify-content: center; }
+  /* Specific fix for the "squeezed" cards in the screenshot */
+  .db-stats-grid div.premium-card {
+    flex-direction: row !important; /* Keep icon next to text but on full width */
+    padding: 16px !important;
+    align-items: center !important;
+  }
+
+  .db-link-card { 
+    min-height: auto !important; 
+    padding: 32px 20px !important; 
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .db-mentor-spotlight-header { 
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
+    gap: 16px !important; 
+  }
+  .db-mentor-spotlight-header .premium-button { width: 100% !important; justify-content: center !important; }
 
   /* --- Study Genie (Summaries) Workspace --- */
-  .sg-app-container { height: auto !important; overflow: visible !important; }
+  .sg-app-container { height: auto !important; overflow: visible !important; min-height: 100vh; }
   
-  .sg-pre-workspace { padding: 24px !important; height: auto !important; min-height: 100vh; }
-  .sg-main-header { flex-direction: column !important; align-items: flex-start !important; gap: 24px !important; margin-bottom: 32px !important; }
-  .sg-main-header h1 { font-size: 32px !important; }
+  .sg-pre-workspace { padding: 20px !important; height: auto !important; }
+  .sg-main-header { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; margin-bottom: 32px !important; }
+  .sg-main-header h1 { font-size: 28px !important; }
   
   .sg-stats-row { 
     flex-direction: column !important; 
     align-items: flex-start !important; 
     gap: 12px !important; 
-    width: 100%; 
-    padding-top: 16px;
-    border-top: 1px solid var(--border-subtle);
+    width: 100% !important;
+    padding-top: 20px !important;
+    border-top: 1px solid var(--border-subtle) !important;
   }
   .sg-stats-row > div { 
     border-right: none !important; 
     padding-right: 0 !important; 
-    align-items: flex-start !important; 
+    align-items: center !important; 
     flex-direction: row !important;
-    gap: 12px;
+    gap: 12px !important;
   }
-  .sg-stats-row .premium-text-h3 { font-size: 15px !important; }
+  .sg-stats-row .premium-text-h3 { font-size: 16px !important; }
 
-  .sg-selection-container { flex: none !important; gap: 40px !important; margin-top: 20px; align-items: center; }
-  .sg-mode-toggles { gap: 16px !important; flex-wrap: wrap; justify-content: center; }
-  .sg-mode-toggles button { font-size: 16px !important; padding: 8px 12px !important; }
+  .sg-selection-container { flex: none !important; gap: 40px !important; margin-top: 40px !important; align-items: center !important; }
+  .sg-mode-toggles { gap: 12px !important; flex-wrap: wrap !important; justify-content: center !important; width: 100% !important; }
+  .sg-mode-toggles button { font-size: 15px !important; padding: 10px 16px !important; }
 
   .sg-feature-palettes { 
     flex-direction: column !important; 
@@ -5549,31 +5578,25 @@ html[data-theme='light'] .footer-bottom {
     width: 100% !important; 
     max-width: 100% !important; 
   }
-  .sg-feature-palette { width: 100% !important; padding: 24px !important; }
+  .sg-feature-palette { width: 100% !important; padding: 24px !important; min-width: 0 !important; }
 
   .sg-workspace-main { 
     height: auto !important; 
-    min-height: 50vh;
+    min-height: 40vh !important;
     overflow: visible !important; 
-    padding: 24px !important; 
+    padding: 20px !important; 
     border-right: none !important; 
   }
   
   .sg-workspace-pdf { 
     height: 60vh !important; 
-    min-height: 400px;
-    border-top: 1px solid var(--border-subtle);
-    padding-top: 20px;
+    min-height: 400px !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    padding-top: 20px !important;
   }
 
-  /* Specific fix for split results in Study Genie */
-  .sg-workspace-main .premium-grid-base {
+  .sg-workspace-main .sg-feature-palettes {
     display: flex !important;
-    flex-direction: column !important;
-    gap: 16px;
-  }
-  .sg-workspace-main .premium-grid-base > div {
-    grid-column: span 12 !important;
   }
 }
 
