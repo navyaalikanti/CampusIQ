@@ -166,12 +166,12 @@ const StudyGenie = () => {
   };
 
   return (
-    <div className="premium-grid-base" style={{ height: 'calc(100vh - 64px)', overflow: 'hidden', padding: 0, background: 'transparent' }}>
+    <div className="premium-grid-base sg-app-container">
       {!isWorkspaceActive ? (
-        <main className="flex-column fade-in" style={{ gridColumn: 'span 12', height: '100%', width: '100%', padding: '32px', background: 'transparent', position: 'relative', display: 'flex', flexDirection: 'column' }}>
+        <main className="flex-column fade-in sg-pre-workspace">
           
           {/* Aligned Header Section */}
-          <header className="flex-row justify-between items-end" style={{ width: '100%', marginBottom: '40px' }}>
+          <header className="flex-row sg-main-header">
             <div className="flex-column gap-8">
               <div className="flex-row gap-8" style={{ color: 'var(--accent)' }}>
                 <BrainCircuit size={16} />
@@ -186,7 +186,7 @@ const StudyGenie = () => {
             </div>
 
             {/* Stats Row */}
-            <div className="flex-row gap-32 items-center" style={{ marginBottom: '8px' }}>
+            <div className="flex-row gap-32 items-center sg-stats-row">
                <div className="flex-column" style={{ alignItems: 'flex-end', borderRight: '1px solid var(--border-subtle)', paddingRight: '24px' }}>
                   <span className="premium-text-meta" style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Library Size</span>
                   <span className="premium-text-h3" style={{ color: 'var(--accent)', margin: 0, fontSize: '18px' }}>{savedResources.length} PDFs</span>
@@ -203,9 +203,8 @@ const StudyGenie = () => {
           </header>
 
           {/* Centered Selection Area */}
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '60px' }}>
-             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px', width: '100%', maxWidth: '500px' }}>
-                <div style={{ display: 'flex', gap: '8px' }}>
+             <div className="flex-column sg-selection-container">
+                <div className="flex-row sg-mode-toggles">
                    <button 
                     onClick={() => setUploadMode('saved')}
                     style={{ 
@@ -302,7 +301,7 @@ const StudyGenie = () => {
              )}
 
              {/* Bottom Feature Capabilities Grid - Interactive Palettes */}
-             <div style={{ display: 'flex', gap: '32px', width: '100%', maxWidth: '900px', justifyContent: 'center' }}>
+             <div className="flex-row sg-feature-palettes">
                 {[
                   { id: 'Summariser', label: 'AI Summarizer', icon: <Sparkles size={28}/>, desc: 'Generate conceptual maps' },
                   { id: 'Quiz', label: 'Quiz Generator', icon: <Target size={28}/>, desc: 'Test retention live' },
@@ -318,13 +317,12 @@ const StudyGenie = () => {
                         setActiveFeature(f.id);
                         setIsWorkspaceActive(true);
                     }}
-                    className="premium-card hover-lift"
+                    className="premium-card hover-lift sg-feature-palette"
                     style={{ 
                       flex: 1, padding: '32px 24px', background: 'var(--interactive-card-bg)', 
                       borderRadius: '24px', border: '1px solid var(--border-subtle)',
                       display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px',
                       cursor: 'pointer', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                      minWidth: '220px'
                     }}
                     onMouseEnter={e => {
                         e.currentTarget.style.background = 'var(--interactive-hover-bg)';
@@ -353,11 +351,8 @@ const StudyGenie = () => {
       ) : (
         <>
           {/* Main AI Interaction Panel */}
-          <main className="col-left flex-column" style={{ 
-            gridColumn: showPdf ? 'span 6' : 'span 12', 
-            height: '100%', overflowY: 'auto', background: 'transparent', 
-            padding: showPdf ? '32px' : '32px 10%', transition: 'all 0.3s ease',
-            borderRight: showPdf ? '1px solid var(--border-subtle)' : 'none'
+          <main className="col-left flex-column sg-workspace-main" style={{ 
+            gridColumn: showPdf ? 'span 6' : 'span 12'
           }}>
             <header className="flex-row justify-between items-start mb-32">
                <div className="flex-column gap-4">
@@ -594,7 +589,7 @@ const StudyGenie = () => {
 
           {/* PDF Viewer Sidebar */}
           {showPdf && (
-            <aside className="col-right fade-in" style={{ gridColumn: 'span 6', height: '100%', background: 'transparent', position: 'relative', transition: 'all 0.3s ease' }}>
+            <aside className="col-right fade-in sg-workspace-pdf" style={{ gridColumn: 'span 6' }}>
               {activePdfUrl ? (
                 <iframe src={activePdfUrl} style={{ width: '100%', height: '100%', border: 'none' }} title="Material Viewer" />
               ) : (

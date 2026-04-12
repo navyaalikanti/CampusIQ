@@ -167,11 +167,11 @@ const Dashboard = () => {
     ].filter((h) => h.value);
 
     return (
-      <div className="premium-grid-base" style={{ padding: '40px' }}>
+      <div className="premium-grid-base db-mentor-dashboard">
         {/* --- Hero Section --- */}
-        <header className="premium-card" style={{ gridColumn: 'span 12', padding: '40px', background: 'var(--hero-gradient)', position: 'relative' }}>
-          <div className="flex-row justify-between items-center gap-32">
-            <div className="flex-row gap-28 items-center">
+        <header className="premium-card db-mentor-hero" style={{ gridColumn: 'span 12', background: 'var(--hero-gradient)', position: 'relative' }}>
+          <div className="flex-row db-hero-content">
+            <div className="flex-row gap-28 db-hero-info">
               <div
                 style={{
                   width: '100px',
@@ -221,7 +221,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="flex-column gap-16" style={{ minWidth: '280px' }}>
+            <div className="flex-column gap-16 db-hero-actions">
               <div className="flex-column gap-10">
                 <Link className="premium-button" style={{ width: '100%', justifyContent: 'center', padding: '16px' }} to="/messages">
                   <MessagesSquare size={18} />
@@ -407,7 +407,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="premium-grid-base" style={{ position: 'relative' }}>
+    <div className="premium-grid-base db-student-dashboard" style={{ position: 'relative' }}>
       <NetworkRequestsNotification />
       <main className="flex-column gap-32" style={{ gridColumn: 'span 12' }}>
         <header className="flex-column gap-16" style={{ marginBottom: '20px' }}>
@@ -423,7 +423,7 @@ const Dashboard = () => {
           </div>
         </header>
 
-        <section style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '24px' }}>
+        <section className="db-stats-grid">
           {statsMetrics.map((metric) => (
             <div key={metric.label} className="premium-card flex-row gap-16" style={{ gridColumn: 'span 3', padding: '20px' }}>
               <div style={{ width: '44px', height: '44px', minWidth: '44px', background: `${metric.color}15`, borderRadius: '12px', color: metric.color, display: 'grid', placeItems: 'center' }}>
@@ -439,7 +439,7 @@ const Dashboard = () => {
 
         <div className="mt-20">
           <h2 className="premium-text-h2" style={{ marginBottom: '24px', fontSize: '22px' }}>Quick Links</h2>
-          <section style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '20px' }}>
+          <section className="db-links-grid">
             {[
               { label: 'Resource Hub', to: '/resources', icon: BookOpen, desc: 'Premium materials' },
               { label: 'Study Genie', to: '/summaries', icon: BrainCircuit, desc: 'AI Intelligence' },
@@ -451,12 +451,12 @@ const Dashboard = () => {
               <Link
                 key={item.label}
                 to={item.to}
-                className="premium-card hover-lift"
+                className="premium-card hover-lift db-link-card"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'var(--interactive-hover-bg)';
                   e.currentTarget.style.borderColor = 'var(--interactive-hover-border)';
                   e.currentTarget.style.boxShadow = 'var(--interactive-hover-shadow)';
-                  e.currentTarget.style.transform = 'translateY(-6px)';
+                  if (window.innerWidth > 768) e.currentTarget.style.transform = 'translateY(-6px)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'var(--interactive-card-bg)';
@@ -466,15 +466,12 @@ const Dashboard = () => {
                 }}
                 style={{
                   gridColumn: 'span 4',
-                  padding: '28px 20px',
-                  textAlign: 'center',
                   background: 'var(--interactive-card-bg)',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '20px',
-                  minHeight: '160px',
                   border: '1px solid transparent',
                   transition: 'all 0.3s ease'
                 }}
@@ -502,7 +499,7 @@ const Dashboard = () => {
         </div>
 
         <section className="premium-card flex-column gap-20" style={{ marginTop: '12px' }}>
-          <div className="flex-row justify-between items-center gap-16">
+          <div className="flex-row db-mentor-spotlight-header">
             <div className="flex-column gap-6">
               <div className="flex-row gap-8" style={{ color: 'var(--accent)' }}>
                 <Users size={16} />
@@ -521,7 +518,7 @@ const Dashboard = () => {
           </div>
 
           {mentorPreview.length ? (
-            <div className="premium-grid-base" style={{ padding: 0 }}>
+            <div className="premium-grid-base db-mentor-preview-grid" style={{ padding: 0 }}>
               {mentorPreview.map((mentor) => (
                 <article
                   key={mentor.id}
