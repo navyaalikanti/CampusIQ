@@ -1056,7 +1056,7 @@ const ResourceHub = () => {
             </button>
           </header>
 
-          <div style={{ flex: 1, position: 'relative', minHeight: '400px' }}>
+          <div style={{ flex: 1, position: 'relative', minHeight: '320px', maxHeight: '450px' }}>
             {selectedResource.fileUrl && (
               <button
                 onClick={() => setPdfExpanded(true)}
@@ -1101,8 +1101,8 @@ const ResourceHub = () => {
           <div className="flex-column" style={{ gap: '12px' }}>
             {!isMentor && (
               <div
-                className="premium-card flex-column gap-12"
-                style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
+                className="premium-card flex-column gap-8"
+                style={{ padding: '16px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
               >
                 <div className="flex-row justify-between items-center">
                   <div className="flex-column gap-4">
@@ -1119,7 +1119,7 @@ const ResourceHub = () => {
                   </div>
                 </div>
 
-                <div className="flex-row gap-8 items-center" style={{ flexWrap: 'wrap' }}>
+                <div className="flex-row gap-6 items-center" style={{ flexWrap: 'wrap' }}>
                   {[1, 2, 3, 4, 5].map((value) => {
                     const active = value <= Number(selectedResource.userRating || 0);
                     return (
@@ -1130,9 +1130,9 @@ const ResourceHub = () => {
                         disabled={ratingLoading}
                         title={`Rate ${value} star${value > 1 ? 's' : ''}`}
                         style={{
-                          width: '38px',
-                          height: '38px',
-                          borderRadius: '10px',
+                          width: '32px',
+                          height: '32px',
+                          borderRadius: '8px',
                           border: active ? '1px solid rgba(212, 175, 55, 0.28)' : '1px solid rgba(255,255,255,0.06)',
                           background: active ? 'rgba(212, 175, 55, 0.12)' : 'rgba(255,255,255,0.02)',
                           color: active ? 'var(--gold)' : 'rgba(230, 238, 255, 0.45)',
@@ -1141,12 +1141,12 @@ const ResourceHub = () => {
                           cursor: ratingLoading ? 'wait' : 'pointer',
                         }}
                       >
-                        <Star size={18} fill={active ? 'currentColor' : 'none'} />
+                        <Star size={16} fill={active ? 'currentColor' : 'none'} />
                       </button>
                     );
                   })}
-                  <span className="premium-text-meta" style={{ fontSize: '12px', marginLeft: '4px' }}>
-                    {selectedResource.userRating ? `You rated this ${selectedResource.userRating}/5` : 'Tap a star to rate'}
+                  <span className="premium-text-meta" style={{ fontSize: '11px', marginLeft: '2px', opacity: 0.7 }}>
+                    {selectedResource.userRating ? `${selectedResource.userRating}/5` : 'Rate'}
                   </span>
                 </div>
               </div>
@@ -1163,18 +1163,18 @@ const ResourceHub = () => {
               
               <button 
                 className="premium-button" 
-                style={{ flex: 1, padding: '10px 16px', fontSize: '13px' }} 
+                style={{ flex: 1, padding: '10px 14px', fontSize: '12px' }} 
                 onClick={() => handleDownload(selectedResource.id)}
               >
-                <ArrowDownToLine size={16} /> Download
+                <ArrowDownToLine size={14} /> Download
               </button>
               
               <button
                 className="premium-button-secondary"
                 style={{ 
                   flex: 1, 
-                  padding: '10px 16px', 
-                  fontSize: '13px', 
+                  padding: '10px 14px', 
+                  fontSize: '12px', 
                   color: 'var(--primary)',
                   background: 'rgba(16, 185, 129, 0.08)',
                   border: '1px solid rgba(16, 185, 129, 0.15)'
@@ -1184,8 +1184,8 @@ const ResourceHub = () => {
                   setShowEndorsements(true);
                 }}
               >
-                <GraduationCap size={16} />
-                {isMentor ? "Expert Rate" : "Mentors"}
+                <GraduationCap size={14} />
+                {isMentor ? "Expert" : "Mentors"}
               </button>
 
               {!isMentor && (

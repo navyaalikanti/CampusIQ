@@ -514,6 +514,13 @@ html[data-theme='light'] .nav-item-highlight {
   position: sticky;
   top: 24px;
   height: calc(100vh - 48px);
+  overflow-y: auto;
+  scrollbar-width: none; /* Hide scrollbar for premium look */
+  -ms-overflow-style: none;
+}
+
+.resource-hub-preview-aside::-webkit-scrollbar {
+  display: none;
 }
 
 @media (max-width: 1100px) {
@@ -526,9 +533,9 @@ html[data-theme='light'] .nav-item-highlight {
     position: relative !important;
     top: 0 !important;
     height: auto !important;
-    min-height: 450px;
-    max-height: 85vh;
-    order: 2 !important; /* Move preview AFTER header but BEFORE list? Or just AFTER header. */
+    min-height: none !important;
+    max-height: none !important;
+    order: 2 !important;
     margin-bottom: 24px;
   }
   
