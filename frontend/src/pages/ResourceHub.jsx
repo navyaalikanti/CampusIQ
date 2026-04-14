@@ -641,14 +641,11 @@ const ResourceHub = () => {
   return (
     <div className="premium-grid-base" style={{ gap: '24px', alignItems: 'start' }}>
 
-      {/* Main Content Area */}
-      <div className={`flex-column resource-hub-main-col ${selectedResource ? 'with-preview' : ''}`} style={{ 
-        gap: '24px',
-        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
-      }}>
-
-      {/* Header */}
-      <header className="flex-row justify-between items-end" style={{ gridColumn: 'span 12' }}>
+      {/* Header - Always on top */}
+      <header 
+        className="flex-row justify-between items-end" 
+        style={{ gridColumn: 'span 12', order: 1 }}
+      >
         <div className="flex-column gap-8">
           <div className="flex-row gap-8" style={{ color: 'var(--accent)' }}>
             <FolderUp size={16} />
@@ -692,38 +689,43 @@ const ResourceHub = () => {
 
       {/* Status bar */}
       {(loading || error) && (
-        <section className="premium-card" style={{ gridColumn: 'span 12', padding: '14px 24px' }}>
+        <section className="premium-card" style={{ gridColumn: 'span 12', padding: '14px 24px', order: 1 }}>
           <span className="premium-text-meta" style={{ color: error ? 'var(--danger)' : 'var(--muted)' }}>
             {loading ? 'Refreshing live resources...' : error}
           </span>
         </section>
       )}
 
-      {/* Explore mode */}
+      {/* Explore Search Area */}
       {mode === 'explore' && (
-        <>
-          {/* Search */}
-          <section
-            className="premium-card flex-row items-center gap-16"
-            style={{ gridColumn: 'span 12', padding: '14px 24px' }}
-          >
-            <Search size={18} color="var(--muted)" />
-            <input
-              className="premium-text-body"
-              style={{ background: 'none', border: 'none', outline: 'none', color: 'var(--text)', flex: 1, fontSize: '15px' }}
-              placeholder="Search by topic, course, unit, or tag..."
-              value={search}
-              onChange={(e) => { setSearch(e.target.value); resetPath(); }}
-            />
-            {search && (
-              <button
-                style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer' }}
-                onClick={() => setSearch('')}
-              >
-                <X size={16} />
-              </button>
-            )}
-          </section>
+        <section
+          className="premium-card flex-row items-center gap-16"
+          style={{ gridColumn: 'span 12', padding: '14px 24px', order: 1 }}
+        >
+          <Search size={18} color="var(--muted)" />
+          <input
+            className="premium-text-body"
+            style={{ background: 'none', border: 'none', outline: 'none', color: 'var(--text)', flex: 1, fontSize: '15px' }}
+            placeholder="Search by topic, course, unit, or tag..."
+            value={search}
+            onChange={(e) => { setSearch(e.target.value); resetPath(); }}
+          />
+          {search && (
+            <button
+              style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer' }}
+              onClick={() => setSearch('')}
+            >
+              <X size={16} />
+            </button>
+          )}
+        </section>
+      )}
+
+      {/* Main Content Area */}
+      <div className={`flex-column resource-hub-main-col ${selectedResource ? 'with-preview' : ''}`} style={{ 
+        gap: '24px',
+        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+      }}>
 
           {/* Batsman Mode Banner (only on root) */}
           {currentPath.length === 0 && !search && (

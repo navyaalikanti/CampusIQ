@@ -57,7 +57,7 @@
 
 @media (max-width: 768px) {
   .premium-grid-base {
-    padding: 16px;
+    padding: 72px 16px 24px 16px !important;
     gap: 16px;
   }
 }
@@ -526,10 +526,14 @@ html[data-theme='light'] .nav-item-highlight {
     position: relative !important;
     top: 0 !important;
     height: auto !important;
-    min-height: 500px;
-    max-height: 80vh;
-    order: -1; /* Show preview above content on mobile when selected */
+    min-height: 450px;
+    max-height: 85vh;
+    order: 2 !important; /* Move preview AFTER header but BEFORE list? Or just AFTER header. */
     margin-bottom: 24px;
+  }
+  
+  .resource-hub-main-col {
+    order: 3 !important;
   }
 
   .resource-row-responsive {
