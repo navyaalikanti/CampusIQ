@@ -381,7 +381,7 @@ const ResourceHub = () => {
   // ─── Resource Row ───────────────────────────────────────────────────────────
   const ResourceRow = ({ resource, showContext }) => (
     <div
-      className="premium-card flex-row items-center gap-24"
+      className="premium-card resource-row-responsive flex-row items-center gap-24"
       style={{
         padding: '20px 28px',
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -423,8 +423,8 @@ const ResourceHub = () => {
           </div>
         </div>
       </div>
-      <div className="flex-row gap-20 items-center" style={{ flexShrink: 0 }}>
-        <div className="flex-column items-end" style={{ gap: '4px' }}>
+      <div className="flex-row resource-row-actions gap-20 items-center" style={{ flexShrink: 0 }}>
+        <div className="flex-column items-end" style={{ gap: '4px', minWidth: '80px' }}>
           <div className="flex-row gap-4 items-center">
             <Star size={12} fill="var(--gold)" color="var(--gold)" />
             <span className="premium-text-meta" style={{ fontWeight: 700, color: 'var(--text)', fontSize: '14px' }}>
@@ -433,7 +433,7 @@ const ResourceHub = () => {
           </div>
           <span style={{ fontSize: '11px', color: 'var(--muted)', opacity: 0.5, fontWeight: 500 }}>{resource.downloads || 0} downloads</span>
         </div>
-        <div className="flex-row gap-8">
+        <div className="flex-row gap-8 flex-wrap">
           <button
             className="premium-button-secondary"
             style={{ width: '38px', height: '38px', padding: 0, borderRadius: '10px', display: 'grid', placeItems: 'center' }}
@@ -642,8 +642,7 @@ const ResourceHub = () => {
     <div className="premium-grid-base" style={{ gap: '24px', alignItems: 'start' }}>
 
       {/* Main Content Area */}
-      <div className="flex-column" style={{ 
-        gridColumn: selectedResource ? 'span 7' : 'span 12', 
+      <div className={`flex-column resource-hub-main-col ${selectedResource ? 'with-preview' : ''}`} style={{ 
         gap: '24px',
         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
       }}>
@@ -1020,12 +1019,9 @@ const ResourceHub = () => {
     {/* Side Preview Panel */}
       {selectedResource && (
         <aside
-          className="premium-card flex-column fade-in"
+          className="premium-card resource-hub-preview-aside flex-column fade-in"
           style={{
-            gridColumn: 'span 5',
-            position: 'sticky',
-            top: '24px',
-            height: 'calc(100vh - 48px)',
+            zIndex: 10,
             padding: '24px',
             display: 'flex',
             flexDirection: 'column',
@@ -1034,7 +1030,6 @@ const ResourceHub = () => {
             backdropFilter: 'blur(20px)',
             border: '1px solid rgba(255, 255, 255, 0.08)',
             boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-            zIndex: 10,
           }}
         >
           <header className="flex-row justify-between items-start">
@@ -1059,7 +1054,7 @@ const ResourceHub = () => {
             </button>
           </header>
 
-          <div style={{ flex: 1, position: 'relative', minHeight: 0 }}>
+          <div style={{ flex: 1, position: 'relative', minHeight: '400px' }}>
             {selectedResource.fileUrl && (
               <button
                 onClick={() => setPdfExpanded(true)}
