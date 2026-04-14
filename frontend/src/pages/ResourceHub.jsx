@@ -91,7 +91,7 @@ const ResourceHub = () => {
   const [resources, setResources] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [search, setSearch] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedResource, setSelectedResource] = useState(null);
   const [resourceContext, setResourceContext] = useState(null);
   const [ratingLoading, setRatingLoading] = useState(false);
@@ -192,7 +192,7 @@ const ResourceHub = () => {
   }, [showEndorsements, ratingResource?.id, fetchEndorsements]);
 
   const tree = useMemo(() => {
-    const query = search.trim().toLowerCase();
+    const query = searchQuery.trim().toLowerCase();
     const filtered = resources.filter((r) =>
       !query ||
       `${r.title} ${r.course} ${r.branch} ${r.section} ${(r.tags || []).join(' ')}`.toLowerCase().includes(query),
@@ -288,7 +288,7 @@ const ResourceHub = () => {
     }
 
     return { level: 'root', data: [] };
-  }, [resources, search, currentPath]);
+  }, [resources, searchQuery, currentPath]);
 
   const handleDownload = async (id) => {
     try {
@@ -451,15 +451,13 @@ const ResourceHub = () => {
             <ArrowDownToLine size={18} />
           </button>
           {!isMentor && (
-            <>
-              <button
-                className={`premium-button-secondary ${resource.saved ? 'is-active' : ''}`}
-                style={{ width: '38px', height: '38px', padding: 0, borderRadius: '10px', display: 'grid', placeItems: 'center', color: resource.saved ? 'var(--gold)' : 'inherit' }}
-                onClick={() => handleSave(resource.id)}
-              >
-                <Bookmark size={18} fill={resource.saved ? 'currentColor' : 'none'} />
-              </button>
-            </>
+            <button
+              className={`premium-button-secondary ${resource.saved ? 'is-active' : ''}`}
+              style={{ width: '38px', height: '38px', padding: 0, borderRadius: '10px', display: 'grid', placeItems: 'center', color: resource.saved ? 'var(--gold)' : 'inherit' }}
+              onClick={() => handleSave(resource.id)}
+            >
+              <Bookmark size={18} fill={resource.saved ? 'currentColor' : 'none'} />
+            </button>
           )}
           <button
             className="premium-button-secondary"
@@ -663,7 +661,7 @@ const ResourceHub = () => {
             {['all', 'mine', 'saved'].map((value) => (
               <button
                 key={value}
-                onClick={() => { setViewMode(value); setMode('explore'); resetPath(); }}
+                onClick={() => { setViewMode(value); setMode('explore'); resetPath(); setSearchQuery(''); }}
                 className="premium-text-meta"
                 style={{
                   padding: '8px 18px', border: 'none', borderRadius: '8px',
@@ -707,13 +705,13 @@ const ResourceHub = () => {
             className="premium-text-body"
             style={{ background: 'none', border: 'none', outline: 'none', color: 'var(--text)', flex: 1, fontSize: '15px' }}
             placeholder="Search by topic, course, unit, or tag..."
-            value={search}
-            onChange={(e) => { setSearch(e.target.value); resetPath(); }}
+            value={searchQuery}
+            onChange={(e) => { setSearchQuery(e.target.value); resetPath(); }}
           />
-          {search && (
+          {searchQuery && (
             <button
               style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer' }}
-              onClick={() => setSearch('')}
+              onClick={() => setSearchQuery('')}
             >
               <X size={16} />
             </button>
@@ -726,9 +724,10 @@ const ResourceHub = () => {
         gap: '24px',
         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
       }}>
-
-          {/* Batsman Mode Banner (only on root) */}
-          {currentPath.length === 0 && !search && (
+        {mode === 'explore' && (
+          <>
+            {/* Batsman Mode Banner (only on root) */}
+            {currentPath.length === 0 && !searchQuery && (
             <section
               className="premium-card flex-row items-center justify-between gap-24 fade-in"
               style={{
@@ -798,7 +797,7 @@ const ResourceHub = () => {
           )}
 
           {/* Tree content */}
-          <section style={{ gridColumn: 'span 12' }}>
+          <section style={{ width: '100%' }}>
             {tree.data.length ? (
               tree.level === 'search' ? (
                 <div className="flex-column gap-20">
@@ -841,7 +840,7 @@ const ResourceHub = () => {
               >
                 <Search size={48} />
                 <p className="premium-text-body">
-                  {search ? 'No resources found matching this search.' : 'No resources in this category yet.'}
+                  {searchQuery ? 'No resources found matching this search.' : 'No resources in this category yet.'}
                 </p>
               </div>
             )}
@@ -849,14 +848,6 @@ const ResourceHub = () => {
         </>
       )}
 
-      {/* Batsman Mode */}
-      {mode === 'batsman' && (
-        <OneDayBatsmanMode 
-          resources={resources} 
-          onClose={() => setMode('explore')} 
-          onResourceClick={(r) => setSelectedResource(r)} 
-        />
-      )}
       </div>
 
       {/* Upload wizard */}
@@ -1466,6 +1457,14 @@ const ResourceHub = () => {
         />
       )}
 
+      {/* Batsman Mode */}
+      {mode === 'batsman' && (
+        <OneDayBatsmanMode 
+          resources={resources} 
+          onClose={() => setMode('explore')} 
+          onResourceClick={(r) => setSelectedResource(r)} 
+        />
+      )}
     </div>
   );
 };
