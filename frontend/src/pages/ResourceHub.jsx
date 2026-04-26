@@ -642,7 +642,7 @@ const ResourceHub = () => {
       {/* Header - Always on top */}
       <header 
         className="flex-row justify-between items-end" 
-        style={{ gridColumn: 'span 12', order: 1 }}
+        style={{ gridColumn: 'span 12' }}
       >
         <div className="flex-column gap-8">
           <div className="flex-row gap-8" style={{ color: 'var(--accent)' }}>
@@ -687,7 +687,7 @@ const ResourceHub = () => {
 
       {/* Status bar */}
       {(loading || error) && (
-        <section className="premium-card" style={{ gridColumn: 'span 12', padding: '14px 24px', order: 1 }}>
+        <section className="premium-card" style={{ gridColumn: 'span 12', padding: '14px 24px' }}>
           <span className="premium-text-meta" style={{ color: error ? 'var(--danger)' : 'var(--muted)' }}>
             {loading ? 'Refreshing live resources...' : error}
           </span>
@@ -698,7 +698,7 @@ const ResourceHub = () => {
       {mode === 'explore' && (
         <section
           className="premium-card flex-row items-center gap-16"
-          style={{ gridColumn: 'span 12', padding: '14px 24px', order: 1 }}
+          style={{ gridColumn: 'span 12', padding: '14px 24px' }}
         >
           <Search size={18} color="var(--muted)" />
           <input
