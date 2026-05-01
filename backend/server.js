@@ -11,6 +11,7 @@ import { PDFParse } from 'pdf-parse';
 import { fileURLToPath } from 'url';
 import { WebSocketServer } from 'ws';
 import { initializeApp } from 'firebase/app';
+import { getAuth, signInAnonymously } from 'firebase/auth';
 import { createClient } from '@supabase/supabase-js';
 import {
   addDoc,
@@ -42,7 +43,13 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
+
+// Authenticate the backend to satisfy Firestore rules (request.auth != null)
+signInAnonymously(auth)
+  .then(() => console.log('✅ Backend authenticated anonymously with Firebase'))
+  .catch((err) => console.error('❌ Firebase Anonymous Auth Error (Ensure Anonymous sign-in is enabled in Firebase Console):', err.message));
 
 // Supabase Initialization
 const supabaseUrl = process.env.SUPABASE_URL;
