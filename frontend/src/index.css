@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
   --bg: #070B14;
@@ -12,30 +13,30 @@
   --gold: #D4AF37;
   --danger: #FF5A5F;
   --accent-gradient: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-  --surface-glass: rgba(14, 22, 40, 0.4);
-  --surface-elevated: rgba(255, 255, 255, 0.05);
-  --surface-elevated-strong: rgba(255, 255, 255, 0.1);
-  --surface-input: rgba(11, 15, 25, 0.72);
-  --sidebar-bg: rgba(10, 15, 28, 0.7);
-  --border-subtle: rgba(248, 250, 252, 0.05);
-  --border-strong: rgba(255, 255, 255, 0.12);
+  --surface-glass: rgba(255, 255, 255, 0.03);
+  --surface-elevated: rgba(255, 255, 255, 0.06);
+  --surface-elevated-strong: rgba(255, 255, 255, 0.12);
+  --surface-input: rgba(11, 15, 25, 0.4);
+  --sidebar-bg: rgba(10, 15, 28, 0.4);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.14);
   --warm-accent: var(--accent);
   --warm-accent-soft: rgba(46, 230, 166, 0.2);
-  --hero-gradient: linear-gradient(135deg, rgba(46, 230, 166, 0.12), rgba(7, 11, 20, 0.6));
-  --hero-panel: rgba(7, 11, 20, 0.45);
-  --match-gradient: linear-gradient(135deg, rgba(46, 230, 166, 0.12), rgba(14, 22, 40, 0.4));
+  --hero-gradient: linear-gradient(135deg, rgba(46, 230, 166, 0.15), rgba(7, 11, 20, 0.4));
+  --hero-panel: rgba(255, 255, 255, 0.02);
+  --match-gradient: linear-gradient(135deg, rgba(46, 230, 166, 0.12), rgba(14, 22, 40, 0.2));
   --interactive-card-bg: rgba(255, 255, 255, 0.02);
   --interactive-hover-bg: rgba(46, 230, 166, 0.08);
   --interactive-hover-border: rgba(46, 230, 166, 0.4);
   --interactive-hover-shadow: 0 0 30px rgba(46, 230, 166, 0.15), 0 12px 30px rgba(0, 0, 0, 0.4);
-  --page-glow-1: rgba(46, 230, 166, 0.15);
-  --page-glow-2: rgba(46, 230, 166, 0.08);
+  --page-glow-1: rgba(46, 230, 166, 0.25);
+  --page-glow-2: rgba(139, 92, 246, 0.2); /* Purple accent glow */
 
-  --card-blur: blur(16px);
-  --card-radius: 20px;
-  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  --card-border: 1px solid rgba(248, 250, 252, 0.05);
-  --card-edge-glow: inset 0 1px 0 rgba(46, 230, 166, 0.1);
+  --card-blur: blur(24px);
+  --card-radius: 24px;
+  --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  --card-border: 1px solid rgba(255, 255, 255, 0.08);
+  --card-edge-glow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
   --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -49,27 +50,27 @@ html[data-theme='light'] {
   --accent: #0FA97F;
   --accent-2: #2B7FFF;
   --gold: #CC8A12;
-  --surface-glass: rgba(255, 255, 255, 0.9);
+  --surface-glass: rgba(255, 255, 255, 0.45);
   --surface-elevated: rgba(43, 127, 255, 0.08);
   --surface-elevated-strong: rgba(15, 169, 127, 0.12);
-  --surface-input: rgba(255, 255, 255, 0.92);
-  --sidebar-bg: rgba(255, 255, 255, 0.78);
-  --border-subtle: rgba(58, 80, 126, 0.1);
-  --border-strong: rgba(43, 127, 255, 0.18);
+  --surface-input: rgba(255, 255, 255, 0.6);
+  --sidebar-bg: rgba(255, 255, 255, 0.4);
+  --border-subtle: rgba(255, 255, 255, 0.4);
+  --border-strong: rgba(255, 255, 255, 0.6);
   --warm-accent: var(--accent);
   --warm-accent-soft: rgba(15, 169, 127, 0.2);
-  --hero-gradient: linear-gradient(135deg, rgba(15, 169, 127, 0.12), rgba(255, 255, 255, 0.8));
-  --hero-panel: rgba(255, 255, 255, 0.62);
+  --hero-gradient: linear-gradient(135deg, rgba(15, 169, 127, 0.12), rgba(255, 255, 255, 0.4));
+  --hero-panel: rgba(255, 255, 255, 0.5);
   --match-gradient: linear-gradient(135deg, rgba(43, 127, 255, 0.12), rgba(15, 169, 127, 0.08), rgba(255, 145, 77, 0.12));
-  --interactive-card-bg: rgba(255, 255, 255, 0.66);
+  --interactive-card-bg: rgba(255, 255, 255, 0.5);
   --interactive-hover-bg: linear-gradient(135deg, rgba(43, 127, 255, 0.14), rgba(15, 169, 127, 0.12));
-  --interactive-hover-border: rgba(43, 127, 255, 0.24);
+  --interactive-hover-border: rgba(43, 127, 255, 0.3);
   --interactive-hover-shadow: 0 16px 34px rgba(98, 113, 164, 0.18), 0 0 24px rgba(43, 127, 255, 0.08);
-  --page-glow-1: rgba(43, 127, 255, 0.16);
-  --page-glow-2: rgba(255, 145, 77, 0.16);
-  --card-shadow: 0 20px 44px rgba(98, 113, 164, 0.18);
-  --card-border: 1px solid rgba(117, 137, 193, 0.14);
-  --card-edge-glow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  --page-glow-1: rgba(43, 127, 255, 0.25);
+  --page-glow-2: rgba(255, 145, 77, 0.25);
+  --card-shadow: 0 20px 44px rgba(98, 113, 164, 0.12);
+  --card-border: 1px solid rgba(255, 255, 255, 0.8);
+  --card-edge-glow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 * {

@@ -438,7 +438,7 @@ const Dashboard = () => {
         </section>
 
         <div className="mt-20">
-          <h2 className="premium-text-h2" style={{ marginBottom: '24px', fontSize: '22px' }}>Quick Links</h2>
+          <h2 className="premium-text-h2" style={{ marginBottom: '24px', fontSize: '26px', fontFamily: "'Outfit', sans-serif", letterSpacing: '-0.02em', fontWeight: '800' }}>Quick Links</h2>
           <section className="db-links-grid">
             {[
               { label: 'Resource Hub', to: '/resources', icon: BookOpen, desc: 'Premium materials' },
@@ -453,16 +453,28 @@ const Dashboard = () => {
                 to={item.to}
                 className="premium-card hover-lift db-link-card"
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'var(--interactive-hover-bg)';
-                  e.currentTarget.style.borderColor = 'var(--interactive-hover-border)';
-                  e.currentTarget.style.boxShadow = 'var(--interactive-hover-shadow)';
-                  if (window.innerWidth > 768) e.currentTarget.style.transform = 'translateY(-6px)';
+                  e.currentTarget.style.background = 'rgba(46, 230, 166, 0.15)';
+                  e.currentTarget.style.borderColor = 'rgba(46, 230, 166, 0.6)';
+                  e.currentTarget.style.boxShadow = '0 0 40px rgba(46, 230, 166, 0.25), 0 12px 30px rgba(0, 0, 0, 0.5)';
+                  if (window.innerWidth > 768) e.currentTarget.style.transform = 'translateY(-8px)';
+                  
+                  const iconContainer = e.currentTarget.querySelector('.icon-container');
+                  if (iconContainer) {
+                    iconContainer.style.background = 'rgba(46, 230, 166, 0.25)';
+                    iconContainer.style.transform = 'scale(1.1)';
+                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'var(--interactive-card-bg)';
                   e.currentTarget.style.borderColor = 'transparent';
                   e.currentTarget.style.boxShadow = 'none';
                   e.currentTarget.style.transform = 'translateY(0)';
+                  
+                  const iconContainer = e.currentTarget.querySelector('.icon-container');
+                  if (iconContainer) {
+                    iconContainer.style.background = 'rgba(46, 230, 166, 0.1)';
+                    iconContainer.style.transform = 'scale(1)';
+                  }
                 }}
                 style={{
                   gridColumn: 'span 4',
@@ -473,10 +485,13 @@ const Dashboard = () => {
                   justifyContent: 'center',
                   gap: '20px',
                   border: '1px solid transparent',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                  padding: '32px 24px'
                 }}
               >
-                <div style={{
+                <div 
+                  className="icon-container"
+                  style={{
                   width: '64px',
                   height: '64px',
                   borderRadius: '18px',
@@ -485,13 +500,14 @@ const Dashboard = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  border: '1px solid rgba(46, 230, 166, 0.1)'
+                  border: '1px solid rgba(46, 230, 166, 0.15)',
+                  transition: 'all 0.3s ease'
                 }}>
                   <item.icon size={32} />
                 </div>
                 <div className="flex-column" style={{ gap: '6px', alignItems: 'center' }}>
-                  <h3 className="premium-text-h3" style={{ margin: 0, fontSize: '20px', fontWeight: '700', color: 'var(--text)' }}>{item.label}</h3>
-                  <span className="premium-text-meta" style={{ fontSize: '13px', opacity: 0.7 }}>{item.desc}</span>
+                  <h3 className="premium-text-h3" style={{ margin: 0, fontSize: '22px', fontWeight: '800', fontFamily: "'Outfit', sans-serif", letterSpacing: '-0.01em', color: 'var(--text)' }}>{item.label}</h3>
+                  <span className="premium-text-meta" style={{ fontSize: '14px', fontFamily: "'Outfit', sans-serif", opacity: 0.7 }}>{item.desc}</span>
                 </div>
               </Link>
             ))}

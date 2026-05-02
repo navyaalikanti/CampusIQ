@@ -91,21 +91,24 @@ const AIAssistant = () => {
     <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999 }}>
       {isOpen && (
         <div 
-          className="premium-card fade-in"
+          className="fade-in"
           style={{
             position: 'absolute',
-            bottom: '72px',
+            bottom: '76px',
             right: '0',
-            width: '320px',
-            height: '420px',
-            backgroundColor: 'rgba(14, 22, 36, 0.95)',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(46, 230, 166, 0.2)',
-            borderRadius: '16px',
+            width: '340px',
+            height: '480px',
+            background: 'var(--surface-glass)',
+            backdropFilter: 'var(--card-blur)',
+            WebkitBackdropFilter: 'var(--card-blur)',
+            border: '1px solid rgba(46, 230, 166, 0.3)',
+            borderTop: '1px solid rgba(46, 230, 166, 0.6)',
+            borderRadius: '24px',
             display: 'flex',
             flexDirection: 'column',
-            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
-            overflow: 'hidden'
+            boxShadow: '0 24px 48px rgba(0, 0, 0, 0.4), 0 0 40px rgba(46, 230, 166, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
+            overflow: 'hidden',
+            transformOrigin: 'bottom right'
           }}
         >
           {/* Header */}
@@ -197,18 +200,32 @@ const AIAssistant = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        onMouseEnter={(e) => {
+          if (!isOpen) {
+            e.currentTarget.style.background = 'rgba(46, 230, 166, 0.15)';
+            e.currentTarget.style.transform = 'scale(1.1)';
+            e.currentTarget.style.boxShadow = '0 12px 28px rgba(46, 230, 166, 0.3), 0 0 20px rgba(46, 230, 166, 0.4)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isOpen) {
+            e.currentTarget.style.background = 'rgba(46, 230, 166, 0.05)';
+            e.currentTarget.style.transform = 'scale(1)';
+            e.currentTarget.style.boxShadow = '0 0 15px rgba(46, 230, 166, 0.15)';
+          }
+        }}
         style={{
-          width: '56px', height: '56px', borderRadius: '50%',
-          background: isOpen ? 'rgba(255,255,255,0.1)' : 'linear-gradient(135deg, var(--accent) 0%, #10b981 100%)',
-          color: isOpen ? 'var(--text)' : '#000',
-          border: isOpen ? '1px solid rgba(255,255,255,0.2)' : 'none',
-          boxShadow: isOpen ? 'none' : '0 10px 25px rgba(46, 230, 166, 0.4)',
+          width: '60px', height: '60px', borderRadius: '50%',
+          background: isOpen ? 'var(--accent)' : 'rgba(46, 230, 166, 0.05)',
+          color: isOpen ? '#000' : 'var(--accent)',
+          border: isOpen ? 'none' : '2px solid var(--accent)',
+          boxShadow: isOpen ? '0 10px 25px rgba(46, 230, 166, 0.4)' : '0 0 15px rgba(46, 230, 166, 0.15)',
           display: 'grid', placeItems: 'center', cursor: 'pointer',
-          transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-          transform: isOpen ? 'scale(0.9)' : 'scale(1)'
+          transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+          transform: isOpen ? 'scale(0.9) rotate(90deg)' : 'scale(1) rotate(0deg)'
         }}
       >
-        {isOpen ? <X size={24} /> : <Bot size={28} />}
+        {isOpen ? <X size={28} /> : <Bot size={28} />}
       </button>
     </div>
   );

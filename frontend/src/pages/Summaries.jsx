@@ -168,52 +168,51 @@ const StudyGenie = () => {
   return (
     <div className="premium-grid-base sg-app-container">
       {!isWorkspaceActive ? (
-        <main className="flex-column fade-in sg-pre-workspace">
+        <main className="flex-column fade-in sg-pre-workspace" style={{ gridColumn: 'span 12', height: '100%', justifyContent: 'center' }}>
           
-          {/* Aligned Header Section */}
-          <header className="flex-row sg-main-header">
-            <div className="flex-column gap-8">
+          {/* Header Section */}
+          <header className="flex-row justify-between items-center sg-main-header" style={{ width: '100%', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
+            <div className="flex-column gap-8" style={{ alignItems: 'flex-start' }}>
               <div className="flex-row gap-8" style={{ color: 'var(--accent)' }}>
-                <BrainCircuit size={16} />
-                <span className="premium-text-meta" style={{ letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                <BrainCircuit size={20} />
+                <span className="premium-text-meta" style={{ letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: '700' }}>
                   AI Intelligence Layer
                 </span>
               </div>
-              <h1 className="premium-text-hero" style={{ marginBottom: 0, fontSize: '38px' }}>Study Genie</h1>
-              <p className="premium-text-meta" style={{ fontStyle: 'italic', opacity: 0.8, marginTop: '8px', fontSize: '18px', color: 'var(--accent)' }}>
+              <h1 className="premium-text-hero" style={{ margin: 0, fontSize: '42px' }}>Study Genie</h1>
+              <p className="premium-text-meta" style={{ fontStyle: 'italic', opacity: 0.8, fontSize: '16px', color: 'var(--accent)' }}>
                 "Unlocking intelligence, one page at a time."
               </p>
             </div>
 
             {/* Stats Row */}
-            <div className="flex-row gap-32 items-center sg-stats-row">
-               <div className="flex-column" style={{ alignItems: 'flex-end', borderRight: '1px solid var(--border-subtle)', paddingRight: '24px' }}>
-                  <span className="premium-text-meta" style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Library Size</span>
-                  <span className="premium-text-h3" style={{ color: 'var(--accent)', margin: 0, fontSize: '18px' }}>{savedResources.length} PDFs</span>
+            <div className="flex-row gap-32 items-center sg-stats-row" style={{ padding: '20px 32px', background: 'var(--surface-elevated)', borderRadius: '24px', border: '1px solid var(--border-subtle)' }}>
+               <div className="flex-column gap-4" style={{ alignItems: 'flex-end', borderRight: '1px solid var(--border-subtle)', paddingRight: '32px' }}>
+                  <span className="premium-text-meta" style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Library Size</span>
+                  <span className="premium-text-h3" style={{ color: 'var(--accent)', margin: 0, fontSize: '20px' }}>{savedResources.length} PDFs</span>
                </div>
-               <div className="flex-column" style={{ alignItems: 'flex-end', borderRight: '1px solid var(--border-subtle)', paddingRight: '24px' }}>
-                  <span className="premium-text-meta" style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Analysis Mastery</span>
-                  <span className="premium-text-h3" style={{ color: 'var(--gold)', margin: 0, fontSize: '18px' }}>Level 84</span>
+               <div className="flex-column gap-4" style={{ alignItems: 'flex-end', borderRight: '1px solid var(--border-subtle)', paddingRight: '32px' }}>
+                  <span className="premium-text-meta" style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Analysis Mastery</span>
+                  <span className="premium-text-h3" style={{ color: 'var(--gold)', margin: 0, fontSize: '20px' }}>Level 84</span>
                </div>
-               <div className="flex-column" style={{ alignItems: 'flex-end' }}>
-                  <span className="premium-text-meta" style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Topics Mapped</span>
-                  <span className="premium-text-h3" style={{ color: 'var(--text-main)', margin: 0, fontSize: '18px' }}>128 Modules</span>
+               <div className="flex-column gap-4" style={{ alignItems: 'flex-end' }}>
+                  <span className="premium-text-meta" style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Topics Mapped</span>
+                  <span className="premium-text-h3" style={{ color: 'var(--text-main)', margin: 0, fontSize: '20px' }}>128 Modules</span>
                </div>
             </div>
           </header>
 
           {/* Centered Selection Area */}
-             <div className="flex-column sg-selection-container">
-                <div className="flex-row sg-mode-toggles">
+             <div className="flex-column sg-selection-container" style={{ alignItems: 'center', width: '100%', marginBottom: '12px' }}>
+                <div className="flex-row justify-center sg-mode-toggles" style={{ marginBottom: '16px', background: 'var(--surface-elevated)', padding: '6px', borderRadius: '16px' }}>
                    <button 
                     onClick={() => setUploadMode('saved')}
                     style={{ 
-                      padding: '12px 24px', borderRadius: '12px', border: 'none', cursor: 'pointer',
-                      background: 'transparent',
-                      color: uploadMode === 'saved' ? 'var(--accent)' : 'var(--muted)',
-                      fontWeight: '800', fontSize: '18px', transition: 'all 0.3s',
-                      textDecoration: uploadMode === 'saved' ? 'underline' : 'none',
-                      textUnderlineOffset: '8px'
+                      padding: '10px 24px', borderRadius: '12px', border: 'none', cursor: 'pointer',
+                      background: uploadMode === 'saved' ? 'var(--accent)' : 'transparent',
+                      color: uploadMode === 'saved' ? '#000' : 'var(--text)',
+                      fontWeight: '700', fontSize: '15px', transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)',
+                      boxShadow: uploadMode === 'saved' ? '0 4px 12px rgba(46, 230, 166, 0.3)' : 'none'
                     }}
                    >
                     Saved Materials
@@ -221,12 +220,11 @@ const StudyGenie = () => {
                    <button 
                     onClick={() => setUploadMode('computer')}
                     style={{ 
-                      padding: '12px 24px', borderRadius: '12px', border: 'none', cursor: 'pointer',
-                      background: 'transparent',
-                      color: uploadMode === 'computer' ? 'var(--accent)' : 'var(--muted)',
-                      fontWeight: '800', fontSize: '18px', transition: 'all 0.3s',
-                      textDecoration: uploadMode === 'computer' ? 'underline' : 'none',
-                      textUnderlineOffset: '8px'
+                      padding: '10px 24px', borderRadius: '12px', border: 'none', cursor: 'pointer',
+                      background: uploadMode === 'computer' ? 'var(--accent)' : 'transparent',
+                      color: uploadMode === 'computer' ? '#000' : 'var(--text)',
+                      fontWeight: '700', fontSize: '15px', transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)',
+                      boxShadow: uploadMode === 'computer' ? '0 4px 12px rgba(46, 230, 166, 0.3)' : 'none'
                     }}
                    >
                     Local File
@@ -301,7 +299,7 @@ const StudyGenie = () => {
              )}
 
              {/* Bottom Feature Capabilities Grid - Interactive Palettes */}
-             <div className="flex-row sg-feature-palettes">
+             <div className="flex-row sg-feature-palettes" style={{ justifyContent: 'center', width: '100%', maxWidth: '900px', gap: '24px', marginTop: '16px', flexWrap: 'wrap' }}>
                 {[
                   { id: 'Summariser', label: 'AI Summarizer', icon: <Sparkles size={28}/>, desc: 'Generate conceptual maps' },
                   { id: 'Quiz', label: 'Quiz Generator', icon: <Target size={28}/>, desc: 'Test retention live' },
@@ -319,7 +317,7 @@ const StudyGenie = () => {
                     }}
                     className="premium-card hover-lift sg-feature-palette"
                     style={{ 
-                      flex: 1, padding: '32px 24px', background: 'var(--interactive-card-bg)', 
+                      flex: '1 1 250px', padding: '32px 24px', background: 'var(--interactive-card-bg)', 
                       borderRadius: '24px', border: '1px solid var(--border-subtle)',
                       display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px',
                       cursor: 'pointer', transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -327,21 +325,24 @@ const StudyGenie = () => {
                     onMouseEnter={e => {
                         e.currentTarget.style.background = 'var(--interactive-hover-bg)';
                         e.currentTarget.style.borderColor = 'var(--interactive-hover-border)';
+                        e.currentTarget.style.boxShadow = '0 10px 30px rgba(46, 230, 166, 0.15)';
                     }}
                     onMouseLeave={e => {
                         e.currentTarget.style.background = 'var(--interactive-card-bg)';
                         e.currentTarget.style.borderColor = 'var(--border-subtle)';
+                        e.currentTarget.style.boxShadow = 'var(--card-shadow)';
                     }}
                   >
                      <div style={{ 
                         color: 'var(--accent)', background: 'var(--surface-elevated-strong)', 
-                        padding: '16px', borderRadius: '18px', display: 'grid', placeItems: 'center'
+                        padding: '16px', borderRadius: '18px', display: 'grid', placeItems: 'center',
+                        boxShadow: '0 4px 12px rgba(46, 230, 166, 0.1)'
                      }}>
                         {f.icon}
                      </div>
-                     <div className="flex-column" style={{ gap: '4px', alignItems: 'center' }}>
-                        <span style={{ color: 'var(--text-main)', fontSize: '15px', fontWeight: '800', letterSpacing: '0.02em' }}>{f.label}</span>
-                        <span style={{ color: 'var(--muted)', fontSize: '11px', fontWeight: '500' }}>{f.desc}</span>
+                     <div className="flex-column" style={{ gap: '6px', alignItems: 'center' }}>
+                        <span style={{ color: 'var(--text-main)', fontSize: '16px', fontWeight: '800', letterSpacing: '0.02em' }}>{f.label}</span>
+                        <span style={{ color: 'var(--muted)', fontSize: '12px', fontWeight: '500' }}>{f.desc}</span>
                      </div>
                   </button>
                 ))}
