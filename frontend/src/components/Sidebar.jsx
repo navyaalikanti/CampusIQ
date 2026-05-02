@@ -58,7 +58,6 @@ const Sidebar = ({ isCollapsed, onToggle }) => {
   const mentorStandaloneItems = [
     { label: 'Dashboard', to: '/dashboard', icon: LayoutDashboard },
     { label: 'Resource Hub', to: '/resources', icon: FolderKanban },
-    { label: 'Messages', to: '/messages', icon: Inbox },
   ];
 
   const navGroups = [
