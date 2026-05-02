@@ -117,7 +117,6 @@ const Landing = () => {
 
           {/* Copy block */}
           <div className="lp-hero-copy">
-            <div className="landing-kicker">Premium EdTech Intelligence</div>
             <h1 className="lp-hero-h1">
               <span className="lp-hero-top-row">Turn campus <br className="lp-mobile-br" /> <span className="lp-accent">{dynamicText}<span className="lp-cursor"></span></span></span> <br /> <span className="lp-hero-bottom-row">into smart learning</span>
             </h1>
@@ -207,10 +206,9 @@ const Landing = () => {
         </div>
 
         {/* Scroll indicator */}
-        <a href="#features" className="lp-scroll-indicator" aria-label="Scroll to features">
-          <span className="lp-scroll-label">Explore</span>
-          <div className="lp-scroll-mouse">
-            <div className="lp-scroll-dot" />
+        <a href="#features" className="lp-scroll-indicator" aria-label="Scroll to features" style={{ opacity: 1 }}>
+          <div className="lp-scroll-mouse" style={{ borderColor: '#2ee6a6', background: '#042f24', borderWidth: '2px', boxShadow: '0 0 15px rgba(46, 230, 166, 0.2)' }}>
+            <div className="lp-scroll-dot" style={{ background: '#2ee6a6', width: '4px', height: '8px' }} />
           </div>
         </a>
 

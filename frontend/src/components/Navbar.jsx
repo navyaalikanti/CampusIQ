@@ -61,11 +61,8 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop nav links */}
+        {/* Desktop nav links removed */}
         <nav className="nav-links">
-          <Link className="nav-link" to="/">Platform</Link>
-          <a className="nav-link" href="#features">Features</a>
-          <a className="nav-link" href="#impact">Impact</a>
         </nav>
 
         {/* Desktop actions */}
@@ -100,10 +97,8 @@ const Navbar = () => {
       {/* Mobile drawer */}
       {menuOpen && (
         <div className="nav-mobile-drawer" onClick={(e) => e.stopPropagation()}>
+          {/* Mobile nav links removed */}
           <nav className="nav-mobile-links">
-            <Link className="nav-mobile-link" to="/" onClick={() => setMenuOpen(false)}>Platform</Link>
-            <a className="nav-mobile-link" href="#features" onClick={() => setMenuOpen(false)}>Features</a>
-            <a className="nav-mobile-link" href="#impact" onClick={() => setMenuOpen(false)}>Impact</a>
           </nav>
           <div className="nav-mobile-actions">
             {isLoggedIn ? (
